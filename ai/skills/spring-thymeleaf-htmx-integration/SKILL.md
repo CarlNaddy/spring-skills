@@ -35,6 +35,7 @@ Define a server-driven architecture using Spring MVC, Thymeleaf, and HTMX.
 
 - Full page → normal requests
 - Partial fragments → HTMX requests
+- Full page responses must include a layout path that guarantees shared `<head>` assets are rendered
 
 ---
 
@@ -80,6 +81,7 @@ public String fragment(Model model) {
 
 * HTMX calls fragment endpoints
 * Fragments update specific DOM elements
+* Fragment responses must not be used as top-level page templates
 
 ---
 
@@ -111,4 +113,5 @@ public String fragment(Model model) {
 * Do NOT return JSON
 * Do NOT mix SPA frameworks
 * Do NOT duplicate logic in frontend
+* Do NOT structure layout composition in a way that drops global CSS/JS assets from full-page responses
 

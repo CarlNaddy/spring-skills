@@ -50,6 +50,12 @@ form.html
 
 Use a base layout and extend it.
 
+### Required Rule (Asset Safety)
+
+- Base layout must own shared `<head>` assets (Tailwind, HTMX, meta, title)
+- Full pages (`index.html`, `login.html`, etc.) must render through the base layout at the root `<html>` level
+- Do NOT compose pages by replacing only `<body>`/`<main>` if that bypasses `<head>`
+
 ### Base Layout Example
 
 ```html
@@ -103,6 +109,7 @@ Use a base layout and extend it.
 
 * Templates must support partial rendering
 * Use fragments for HTMX responses
+* HTMX fragments must exclude duplicate `<html>/<head>/<body>` wrappers
 
 ---
 
@@ -151,4 +158,15 @@ Use a base layout and extend it.
 * Do NOT embed business logic in templates
 * Do NOT mix with SPA frameworks
 * Do NOT return full pages for HTMX updates
+* Do NOT define Tailwind/HTMX scripts in templates that are not guaranteed to render in final HTML
+
+---
+
+## Validation Checklist
+
+Before finishing:
+
+- Open page source and confirm Tailwind/HTMX scripts are present in `<head>`
+- Confirm full-page routes render full document structure
+- Confirm HTMX routes return fragment-only HTML
 
