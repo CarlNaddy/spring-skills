@@ -1,2 +1,0 @@
-Read the SPEC.md and all skills in ./.ai/skills.
-Determine the relevant skills and follow their rules to implement the project.
