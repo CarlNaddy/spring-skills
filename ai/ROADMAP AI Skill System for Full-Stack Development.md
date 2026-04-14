@@ -210,7 +210,7 @@ ai/
 
 ## Step 1: Define Project
 
-Edit `ai/SPEC.md`:
+Edit `specs/PRODUCT.md` (and active `specs/features/<id>/spec.md` when present):
 
 ```md
 Backend: Spring Boot (REST)
@@ -230,7 +230,7 @@ Open the project in Cursor.
 ## Step 3: Prompt the AI
 
 ```text
-Read ai/SPEC.md and all skills in ai/skills.
+Read specs/PRODUCT.md, active specs/features/<id>/spec.md, ai/STACKS.md, and selected skills in ai/skills.
 Determine relevant skills and follow their rules strictly.
 ```
 

@@ -20,10 +20,9 @@ Always follow this priority order:
 
 1. Active feature spec: `specs/features/<id>/spec.md` (when implementing a specific feature)
 2. Product requirements: `specs/PRODUCT.md`
-3. `ai/SPEC.md` (legacy fallback when `specs/` is not available or user explicitly requests it)
-4. Integration Skills
-5. Atomic Skills
-6. Defaults
+3. Integration Skills
+4. Atomic Skills
+5. Defaults
 
 If there is a conflict:
 
@@ -35,11 +34,11 @@ If there is a conflict:
 
 You must read and understand:
 
-* `ai/STACKS.md` (if present)
-* `specs/PRODUCT.md` (if present)
+* `ai/STACKS.md`
+* `specs/PRODUCT.md` (create it if missing)
 * active `specs/features/<id>/spec.md` (if present)
-* `ai/SPEC.md` only when using legacy flow
-* all skills in `ai/skills/**/SKILL.md`
+* selected integration skill + required skills from its `Requirements`
+* additional non-conflicting feature skills only when needed
 
 ---
 
@@ -55,6 +54,8 @@ Use this structure:
 * `specs/features/<id>/plan.md` (optional)
 * `specs/features/<id>/tasks.md`
 
+If `specs/PRODUCT.md` does not exist, create it before implementation work.
+
 When the user says "create a new feature" (or equivalent), you MUST:
 
 1. Create `specs/features/<id>/` using `NNN-short-name` format
@@ -66,6 +67,8 @@ When the user says "create a new feature" (or equivalent), you MUST:
 5. Never create product-specific feature docs inside `ai/`
 
 If `specs/features/TEMPLATE/` exists, use it as the default scaffold.
+Always scaffold new feature docs from `specs/features/TEMPLATE/` (do not create ad-hoc structures).
+If template files are missing, recreate `spec.md`, `plan.md`, and `tasks.md` in `specs/features/TEMPLATE/` before creating a new feature.
 
 ---
 
