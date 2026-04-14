@@ -1,0 +1,18 @@
+name: Specs Consistency
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-specs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run specs validation
+        run: sed -i 's/\r$//' scripts/validate-specs.sh && bash scripts/validate-specs.sh
+
