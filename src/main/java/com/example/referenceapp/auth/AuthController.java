@@ -1,5 +1,6 @@
 package com.example.referenceapp.auth;
 
+import com.example.referenceapp.config.SecurityConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,7 +9,7 @@ public class AuthController {
 
     @GetMapping("/")
     public String root() {
-        return "redirect:/users";
+        return "redirect:" + SecurityConfig.AUTHENTICATED_LANDING_PAGE;
     }
 
     @GetMapping("/login")

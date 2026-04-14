@@ -123,6 +123,11 @@ public String login() {
 
 ## Defaults
 
+* Define an authenticated landing page as the route configured by `defaultSuccessUrl(...)` in Spring Security
+* Root URL design decision:
+  * If an explicit home/root page is defined by the application, map `/` to that page.
+  * Otherwise, map `/` to redirect to the same authenticated landing page route.
+  * Keep this explicit in controller/security configuration; do not implement runtime filesystem/template existence checks.
 * Login URL: `/login`
 * Logout URL: `/logout`
 * Session-based authentication

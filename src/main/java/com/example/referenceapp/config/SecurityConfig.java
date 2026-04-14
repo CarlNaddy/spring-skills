@@ -14,6 +14,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+    public static final String AUTHENTICATED_LANDING_PAGE = "/users";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -22,7 +24,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/users", true)
+                        .defaultSuccessUrl(AUTHENTICATED_LANDING_PAGE, true)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutUrl("/logout")
