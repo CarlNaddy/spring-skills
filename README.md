@@ -1,11 +1,20 @@
 # Spring Boot Full-Stack Skills Framework
 
+[![Specs Consistency](https://github.com/nadobnykh/spring-skills/actions/workflows/specs-consistency.yml/badge.svg)](https://github.com/nadobnykh/spring-skills/actions/workflows/specs-consistency.yml)
+
 A reusable AI framework for building Java web apps with consistent architecture and fast feature delivery.
 
 This repository showcases:
 - a portable skills system (`ai/`),
 - a specs-driven feature workflow (`specs/`),
 - and a reference application used only as an example implementation.
+
+## Demo
+
+Add your visuals here to make first-time visitors understand value quickly:
+
+- `docs/assets/feature-workflow.gif` (prompt -> scaffold -> implement)
+- `docs/assets/reference-app-users.png` (running app screenshot)
 
 ## Skills First
 
@@ -15,6 +24,15 @@ The core value is the AI skills framework:
 - `ai/skills/**` contains atomic + integration skills.
 - `ai/STACKS.md` is the stack catalog the agent uses for selection.
 - The agent must record selected stack and required skills in `specs/PRODUCT.md` before implementation.
+
+## Why This Framework
+
+Compared to ad-hoc prompting:
+
+- deterministic stack selection (no accidental tech drift),
+- consistent feature scaffolding (`spec.md`, `tasks.md`, optional `plan.md`),
+- explicit skill constraints and conflict handling,
+- faster onboarding for teams using shared conventions.
 
 ## Supported Java/Spring Stacks
 
@@ -26,6 +44,34 @@ Defined in `ai/STACKS.md`:
 - `spring-react`
   - Spring REST API + React SPA
   - JSON-first client/server separation
+
+## Copy-Paste Prompt Examples
+
+```text
+Let's create feature user-search.
+```
+
+```text
+Create a new feature for user role filters and scaffold all spec files.
+```
+
+```text
+Implement specs/features/user-search/spec.md end-to-end and validate tests.
+```
+
+### Template-specific prompts (quick wins)
+
+```text
+Create feature project-crud using the CRUD template in specs/features/templates/crud.
+```
+
+```text
+Create feature auth-hardening using specs/features/templates/auth-hardening and scaffold spec/tasks/plan.
+```
+
+```text
+Create feature user-pagination using specs/features/templates/pagination, then implement the first slice.
+```
 
 ## Example Implementation
 
@@ -40,7 +86,7 @@ The included Spring app is a demo vehicle that shows the framework in action:
 
 Use prompts like:
 
-- "Let's create feature `002-user-search`"
+- "Let's create feature `user-search`"
 - "Create a new feature for exporting users"
 
 Expected flow:
@@ -58,7 +104,8 @@ Expected flow:
 1. Set product direction in `specs/PRODUCT.md`.
 2. Create a feature folder: `specs/features/<id>/`.
 3. Use template files from `specs/features/TEMPLATE/`.
-4. Implement and verify against acceptance criteria.
+4. Optionally start from specialized templates in `specs/features/templates/` (`crud`, `auth-hardening`, `pagination`).
+5. Implement and verify against acceptance criteria.
 
 ## Check It Out Fast
 
@@ -75,6 +122,15 @@ Expected flow:
 - `ai/` - portable AI framework (`AGENT.md`, skills, stack catalog)
 - `specs/` - product and feature requirements
 - `src/` - Spring Boot application code
+
+## Roadmap
+
+- [x] Skills-first workflow with stack selection gate
+- [x] Specs-based feature scaffolding templates
+- [x] Reference app with SSR + HTMX example
+- [ ] Demo visuals (GIF + screenshots)
+- [x] Additional feature templates (CRUD, auth hardening, pagination)
+- [x] CI checks for specs and template consistency
 
 ---
 
