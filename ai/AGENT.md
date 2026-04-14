@@ -58,7 +58,7 @@ If `specs/PRODUCT.md` does not exist, create it before implementation work.
 
 When the user says "create a new feature" (or equivalent), you MUST:
 
-1. Create `specs/features/<id>/` using `NNN-short-name` format
+1. Create `specs/features/<id>/` using project feature naming (recommended: `NNN-short-title`, example: `002-user-search`)
 2. Create:
    * `spec.md`
    * `tasks.md`
@@ -324,7 +324,7 @@ Used when asked to build:
 
 Before completing any task:
 
-* Did I follow SPEC.md?
+* Did I follow the active product and feature specs?
 * Did I follow `specs/PRODUCT.md` and active feature `spec.md`?
 * Did I use the correct integration skill?
 * Did I respect all Anti-Patterns?

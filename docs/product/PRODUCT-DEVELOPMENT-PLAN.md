@@ -42,7 +42,7 @@ No separate PRD archive is required unless complexity grows.
 
 ## 4. Conventions
 
-- Feature folder naming: `NNN-short-name` (example: `001-auth-hardening`).
+- Feature folder naming: `NNN-short-title` (example: `001-auth-hardening`).
 - Keep files concise and decision-focused.
 - Keep task items small enough to complete in one session.
 - Prefer checklists with concrete outcomes over narrative updates.

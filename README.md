@@ -92,7 +92,7 @@ Use prompts like:
 Expected flow:
 
 1. Agent checks selected stack (or asks to choose from `ai/STACKS.md`).
-2. Agent scaffolds `specs/features/<id>/`.
+2. Agent scaffolds `specs/features/<id>/` (commonly `NNN-short-title`).
 3. Agent creates:
    - `spec.md` (requirements + acceptance criteria)
    - `tasks.md` (execution checklist)

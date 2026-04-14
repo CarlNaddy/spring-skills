@@ -2,9 +2,11 @@
 
 Create one folder per feature:
 
-- `NNN-short-name/spec.md`
-- `NNN-short-name/plan.md` (optional)
-- `NNN-short-name/tasks.md`
+- Recommended: `NNN-short-title/spec.md`
+- Recommended: `NNN-short-title/plan.md` (optional)
+- Recommended: `NNN-short-title/tasks.md`
+
+Prompts can use short titles (e.g. `user-search`); feature folders can still be created with numbering for repository organization.
 
 Use `TEMPLATE/` as a starter.
 
