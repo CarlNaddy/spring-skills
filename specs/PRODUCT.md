@@ -128,18 +128,19 @@ The application follows a clean, maintainable architecture using server-side ren
 
 ## Current priorities
 
-- Priority 1: Implement delete user flow (`specs/features/001-delete-users/`)
-- Priority 2:
+- Priority 1: Implement user detail view from users list (`specs/features/002-user-detail-view/`)
+- Priority 2: Maintain delete user flow (`specs/features/001-delete-users/`)
 - Priority 3:
 
 ## In scope now
 
-- Add delete user capability in user management UI and backend flow
+- Add user detail view capability from user management list
+- Show all currently available user fields in a dedicated detail view
 
 ## Out of scope now
 
-- Soft delete and audit log
-- Bulk delete
+- Editing user profile fields from the detail page
+- New persistence model changes beyond existing available user fields
 
 ---
 
@@ -160,5 +161,5 @@ The application follows a clean, maintainable architecture using server-side ren
 - Follow all skill rules strictly.
 - Do not introduce unnecessary abstractions.
 - Link active feature specs under `specs/features/`.
-- Active feature: `specs/features/001-delete-users/spec.md`
+- Active feature: `specs/features/002-user-detail-view/spec.md`
 

@@ -1,6 +1,7 @@
 package com.example.referenceapp.user;
 
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -30,6 +32,14 @@ public class UserController {
     public String usersList(Model model) {
         model.addAttribute("users", userService.findAll());
         return "users/list :: userListContainer";
+    }
+
+    @GetMapping("/users/{id}")
+    public String userDetail(@PathVariable("id") Long id, Model model) {
+        User user = userService.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+        model.addAttribute("user", user);
+        return "users/detail";
     }
 
     @GetMapping("/users/form")

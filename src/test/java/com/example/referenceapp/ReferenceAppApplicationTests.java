@@ -1,5 +1,7 @@
 package com.example.referenceapp;
 
+import com.example.referenceapp.user.User;
+import com.example.referenceapp.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,6 +23,9 @@ class ReferenceAppApplicationTests {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Test
     void loginPageShouldBePublic() throws Exception {
@@ -60,6 +65,23 @@ class ReferenceAppApplicationTests {
                         .with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(view().name("users/index :: userSection"));
+    }
+
+    @Test
+    @WithMockUser
+    void userDetailShouldRenderForExistingUser() throws Exception {
+        User user = userRepository.save(new User(null, "Detail User", "detail@example.com"));
+
+        mockMvc.perform(get("/users/" + user.id()))
+                .andExpect(status().isOk())
+                .andExpect(view().name("users/detail"));
+    }
+
+    @Test
+    @WithMockUser
+    void userDetailShouldReturnNotFoundForMissingUser() throws Exception {
+        mockMvc.perform(get("/users/999999"))
+                .andExpect(status().isNotFound());
     }
 }
 

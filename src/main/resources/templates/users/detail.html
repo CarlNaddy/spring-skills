@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/base :: layout('User Detail', ~{::section})}">
+    <section class="space-y-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl font-semibold text-slate-900">User Detail</h1>
+                <p class="mt-1 text-sm text-slate-600">All available information for this user.</p>
+            </div>
+            <a href="/users"
+               class="rounded-md bg-white px-3 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-300 hover:bg-slate-100">
+                Back to Users
+            </a>
+        </div>
+
+        <div class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+            <dl class="divide-y divide-slate-200">
+                <div class="grid grid-cols-1 gap-2 px-4 py-3 sm:grid-cols-3">
+                    <dt class="text-sm font-medium text-slate-600">ID</dt>
+                    <dd class="text-sm text-slate-900 sm:col-span-2" th:text="${user.id()}">1</dd>
+                </div>
+                <div class="grid grid-cols-1 gap-2 px-4 py-3 sm:grid-cols-3">
+                    <dt class="text-sm font-medium text-slate-600">Name</dt>
+                    <dd class="text-sm text-slate-900 sm:col-span-2" th:text="${user.name()}">Jane Doe</dd>
+                </div>
+                <div class="grid grid-cols-1 gap-2 px-4 py-3 sm:grid-cols-3">
+                    <dt class="text-sm font-medium text-slate-600">Email</dt>
+                    <dd class="text-sm text-slate-900 sm:col-span-2" th:text="${user.email()}">jane@example.com</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+</html>

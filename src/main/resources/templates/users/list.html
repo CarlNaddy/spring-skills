@@ -19,9 +19,21 @@
                 <td class="px-3 py-4 text-slate-500" colspan="4">No users yet.</td>
             </tr>
             <tr th:each="user : ${users}">
-                <td class="px-3 py-2" th:text="${user.id()}">1</td>
-                <td class="px-3 py-2" th:text="${user.name()}">Jane Doe</td>
-                <td class="px-3 py-2" th:text="${user.email()}">jane@example.com</td>
+                <td class="px-3 py-2">
+                    <a th:href="@{/users/{id}(id=${user.id()})}"
+                       class="block rounded px-2 py-1 text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                       th:text="${user.id()}">1</a>
+                </td>
+                <td class="px-3 py-2">
+                    <a th:href="@{/users/{id}(id=${user.id()})}"
+                       class="block rounded px-2 py-1 font-medium text-slate-900 hover:bg-slate-50"
+                       th:text="${user.name()}">Jane Doe</a>
+                </td>
+                <td class="px-3 py-2">
+                    <a th:href="@{/users/{id}(id=${user.id()})}"
+                       class="block rounded px-2 py-1 text-slate-700 hover:bg-slate-50"
+                       th:text="${user.email()}">jane@example.com</a>
+                </td>
                 <td class="px-3 py-2 text-right">
                     <form th:action="@{/users/{id}/delete(id=${user.id()})}"
                           method="post"
