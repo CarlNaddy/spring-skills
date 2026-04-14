@@ -1,0 +1,10 @@
+---
+description: Require reading ai/AGENT.md before coding
+alwaysApply: true
+---
+
+# Read `ai/AGENT.md` Before Coding
+
+Before making any code edits in this repository, first read `ai/AGENT.md` in the current session and follow it as the primary local guideline.
+
+If `ai/AGENT.md` has not been read yet in this session, do not proceed with file edits until it is read.
