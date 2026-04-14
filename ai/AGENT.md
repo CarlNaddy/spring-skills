@@ -93,6 +93,7 @@ After a stack is selected:
   * selected integration skill
   * required skills listed in that integration skill's `Requirements`
 * Avoid skills that conflict with selected integration skill
+* For Spring Boot stacks, include the `spring-boot-devtools` skill by default unless the developer explicitly opts out
 
 You MUST NOT implement app code until stack selection is explicit.
 
@@ -182,6 +183,7 @@ You MUST follow this process:
 * If missing: pause and ask user to choose from `ai/STACKS.md`
 * Load selected integration skill only
 * Load only required skills from integration skill `Requirements`
+* Ensure Spring Boot stacks include `spring-boot-devtools` unless explicitly disabled by developer instruction
 * Ensure selected stack required skills are documented in `specs/PRODUCT.md`
 * Map features → additional feature skills that do not conflict
 

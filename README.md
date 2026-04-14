@@ -24,6 +24,7 @@ The core value is the AI skills framework:
 - `ai/skills/**` contains atomic + integration skills.
 - `ai/STACKS.md` is the stack catalog the agent uses for selection.
 - The agent must record selected stack and required skills in `specs/PRODUCT.md` before implementation.
+- Spring Boot stacks include `spring-boot-devtools` by default (`pom.xml` with `<optional>true</optional>` for development-only behavior).
 
 ## Why This Framework
 

@@ -7,6 +7,7 @@ integration
 
 - spring-rest-api
 - react-frontend
+- spring-boot-devtools
 
 ## Conflicts
 

@@ -8,6 +8,7 @@ integration
 - spring-mvc
 - thymeleaf-templates
 - htmx-interactions
+- spring-boot-devtools
 
 ## Conflicts
 

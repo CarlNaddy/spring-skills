@@ -16,6 +16,7 @@ The application follows a clean, maintainable architecture using server-side ren
   - `spring-mvc`
   - `thymeleaf-templates`
   - `htmx-interactions`
+  - `spring-boot-devtools`
 - Baseline app skills (in use for current product):
   - `tailwindcss`
   - `spring-mvc-auth-session`

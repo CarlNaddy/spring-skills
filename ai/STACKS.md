@@ -26,6 +26,7 @@ After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected
 - `spring-mvc`
 - `thymeleaf-templates`
 - `htmx-interactions`
+- `spring-boot-devtools`
 
 ### Conflicts
 
@@ -51,6 +52,7 @@ After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected
 
 - `spring-rest-api`
 - `react-frontend`
+- `spring-boot-devtools`
 
 ### Conflicts
 
