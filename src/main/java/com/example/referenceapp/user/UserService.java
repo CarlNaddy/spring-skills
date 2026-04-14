@@ -37,6 +37,26 @@ public class UserService {
         return userRepository.deleteById(id);
     }
 
+    public List<Todo> findTodosByUserId(Long userId) {
+        return userRepository.findTodosByUserId(userId);
+    }
+
+    public Optional<Todo> addTodo(Long userId, String text) {
+        String normalized = normalizeOptional(text);
+        if (normalized == null) {
+            return Optional.empty();
+        }
+        return userRepository.addTodo(userId, normalized);
+    }
+
+    public boolean deleteTodoById(Long userId, Long todoId) {
+        return userRepository.deleteTodoById(userId, todoId);
+    }
+
+    public boolean markTodoDone(Long userId, Long todoId) {
+        return userRepository.markTodoDone(userId, todoId);
+    }
+
     private String normalizeOptional(String value) {
         if (value == null) {
             return null;

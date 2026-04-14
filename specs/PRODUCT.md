@@ -92,6 +92,7 @@ The application follows a clean, maintainable architecture using server-side ren
 ## Defaults
 
 - Base URL structure:
+  - `/`
   - `/login`
   - `/logout`
   - `/users`
@@ -129,19 +130,20 @@ The application follows a clean, maintainable architecture using server-side ren
 
 ## Current priorities
 
-- Priority 1: Implement user detail view from users list (`specs/features/002-user-detail-view/`)
-- Priority 2: Maintain delete user flow (`specs/features/001-delete-users/`)
-- Priority 3:
+- Priority 1: Implement per-user todo list on user detail view (`specs/features/003-user-todos/`)
+- Priority 2: Keep user detail navigation stable (`specs/features/002-user-detail-view/`)
+- Priority 3: Maintain delete user flow (`specs/features/001-delete-users/`)
 
 ## In scope now
 
-- Add user detail view capability from user management list
-- Show all currently available user fields in a dedicated detail view
+- Show a per-user todo list on the user detail page
+- Allow adding, deleting, and marking todos as done for a specific user
+- Keep existing user detail navigation and user information rendering intact
 
 ## Out of scope now
 
-- Editing user profile fields from the detail page
-- New persistence model changes beyond existing available user fields
+- Editing todo items
+- Cross-user/bulk todo management
 
 ---
 
@@ -162,5 +164,5 @@ The application follows a clean, maintainable architecture using server-side ren
 - Follow all skill rules strictly.
 - Do not introduce unnecessary abstractions.
 - Link active feature specs under `specs/features/`.
-- Active feature: `specs/features/002-user-detail-view/spec.md`
+- Active feature: `specs/features/003-user-todos/spec.md`
 

@@ -12,5 +12,13 @@ public interface UserRepository {
     User save(User user);
 
     boolean deleteById(Long id);
+
+    List<Todo> findTodosByUserId(Long userId);
+
+    Optional<Todo> addTodo(Long userId, String text);
+
+    boolean deleteTodoById(Long userId, Long todoId);
+
+    boolean markTodoDone(Long userId, Long todoId);
 }
 
