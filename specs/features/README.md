@@ -8,3 +8,9 @@ Create one folder per feature:
 
 Use `TEMPLATE/` as a starter.
 
+Optional pattern templates are available in `templates/`:
+
+- `templates/crud/`
+- `templates/auth-hardening/`
+- `templates/pagination/`
+
