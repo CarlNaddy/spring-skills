@@ -18,10 +18,12 @@ Your goal is to:
 
 Always follow this priority order:
 
-1. `ai/SPEC.md`
-2. Integration Skills
-3. Atomic Skills
-4. Defaults
+1. Active feature spec: `specs/features/<id>/spec.md` (when implementing a specific feature)
+2. Product requirements: `specs/PRODUCT.md`
+3. `ai/SPEC.md` (legacy fallback when `specs/` is not available or user explicitly requests it)
+4. Integration Skills
+5. Atomic Skills
+6. Defaults
 
 If there is a conflict:
 
@@ -33,8 +35,60 @@ If there is a conflict:
 
 You must read and understand:
 
-* `ai/SPEC.md`
+* `ai/STACKS.md` (if present)
+* `specs/PRODUCT.md` (if present)
+* active `specs/features/<id>/spec.md` (if present)
+* `ai/SPEC.md` only when using legacy flow
 * all skills in `ai/skills/**/SKILL.md`
+
+---
+
+# 3.1 Product Planning Workspace
+
+Project-owned product artifacts must live in `specs/` (NOT in `ai/`).
+Exception: stack catalog lives in `ai/STACKS.md` as part of the portable skill package.
+
+Use this structure:
+
+* `specs/PRODUCT.md`
+* `specs/features/<id>/spec.md`
+* `specs/features/<id>/plan.md` (optional)
+* `specs/features/<id>/tasks.md`
+
+When the user says "create a new feature" (or equivalent), you MUST:
+
+1. Create `specs/features/<id>/` using `NNN-short-name` format
+2. Create:
+   * `spec.md`
+   * `tasks.md`
+3. Create `plan.md` when complexity/trade-offs justify planning
+4. Update `specs/PRODUCT.md` to reference the new feature and status
+5. Never create product-specific feature docs inside `ai/`
+
+If `specs/features/TEMPLATE/` exists, use it as the default scaffold.
+
+---
+
+# 3.2 Stack Selection Gate (Mandatory)
+
+Before implementation, check `specs/PRODUCT.md` for selected stack.
+
+If no stack is selected:
+
+1. STOP implementation
+2. Present all options from `ai/STACKS.md` with trade-offs
+3. Ask user to choose a stack explicitly
+4. Record selected stack in `specs/PRODUCT.md`
+5. Continue only after selection is confirmed
+
+After a stack is selected:
+
+* Load only:
+  * selected integration skill
+  * required skills listed in that integration skill's `Requirements`
+* Avoid skills that conflict with selected integration skill
+
+You MUST NOT implement app code until stack selection is explicit.
 
 ---
 
@@ -82,14 +136,17 @@ You MUST follow this process:
   * interactivity
   * styling
   * features
+  * acceptance criteria from active feature `spec.md` (if present)
 
 ---
 
 ## Step 2: Select Skills
 
-* Map stack → atomic skills
-* Map features → feature skills
-* Identify required integration skill(s)
+* Resolve selected stack from `specs/PRODUCT.md`
+* If missing: pause and ask user to choose from `ai/STACKS.md`
+* Load selected integration skill only
+* Load only required skills from integration skill `Requirements`
+* Map features → additional feature skills that do not conflict
 
 ---
 
@@ -130,6 +187,8 @@ Before finishing, verify:
 * All constraints from SPEC are respected
 * No Anti-Patterns are present
 * Architecture matches integration skill
+* Feature acceptance criteria in `specs/features/<id>/spec.md` are satisfied
+* `tasks.md` reflects completed work status
 
 ---
 
@@ -259,6 +318,7 @@ Used when asked to build:
 Before completing any task:
 
 * Did I follow SPEC.md?
+* Did I follow `specs/PRODUCT.md` and active feature `spec.md`?
 * Did I use the correct integration skill?
 * Did I respect all Anti-Patterns?
 * Did I introduce any conflicting technologies?
