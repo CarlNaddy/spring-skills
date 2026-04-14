@@ -12,7 +12,7 @@ This folder is the project-owned planning and execution space.
 ## Suggested workflow
 
 1. Update `PRODUCT.md` with current priorities.
-2. If stack is not selected, choose one from `ai/STACKS.md` and record it in `PRODUCT.md`.
+2. If stack is not selected, choose one from `ai/STACKS.md` and record it in `PRODUCT.md` with required skills.
 3. Create `features/<id>/` for work that is ready to implement.
 4. Write `spec.md` with acceptance criteria first.
 5. Add `plan.md` only when there are meaningful design choices.

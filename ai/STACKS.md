@@ -4,7 +4,7 @@ This is the stack catalog provided by the AI skill package.
 
 When no stack is selected in `specs/PRODUCT.md`, choose one of the stacks below before implementation.
 
-After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected stack`.
+After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected stack`, including required skills.
 
 ---
 

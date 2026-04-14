@@ -81,7 +81,10 @@ If no stack is selected:
 1. STOP implementation
 2. Present all options from `ai/STACKS.md` with trade-offs
 3. Ask user to choose a stack explicitly
-4. Record selected stack in `specs/PRODUCT.md`
+4. Record selected stack in `specs/PRODUCT.md`, including:
+   * stack ID
+   * integration skill path
+   * required skills from selected stack
 5. Continue only after selection is confirmed
 
 After a stack is selected:
@@ -149,6 +152,7 @@ You MUST follow this process:
 * If missing: pause and ask user to choose from `ai/STACKS.md`
 * Load selected integration skill only
 * Load only required skills from integration skill `Requirements`
+* Ensure selected stack required skills are documented in `specs/PRODUCT.md`
 * Map features → additional feature skills that do not conflict
 
 ---
