@@ -57,6 +57,15 @@ if ! grep -Eq "Required stack skills:" specs/PRODUCT.md; then
   exit 1
 fi
 
+active_spec_path="$(sed -n 's/^-\s*Active feature:[[:space:]]*`\([^`]*\)`/\1/p' specs/PRODUCT.md | head -n 1)"
+if [[ -n "$active_spec_path" ]]; then
+  active_feature_dir="$(dirname "$active_spec_path")"
+  if [[ ! -f "$active_feature_dir/spec.md" || ! -f "$active_feature_dir/tasks.md" ]]; then
+    echo "Active feature must include spec.md and tasks.md in: $active_feature_dir"
+    exit 1
+  fi
+fi
+
 echo "Checking feature folders for required files..."
 
 for feature_dir in specs/features/*; do

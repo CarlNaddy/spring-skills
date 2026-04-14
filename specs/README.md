@@ -16,5 +16,6 @@ This folder is the project-owned planning and execution space.
 3. Create `features/<id>/` for work that is ready to implement.
 4. Write `spec.md` with acceptance criteria first.
 5. Add `plan.md` only when there are meaningful design choices.
-6. Execute and track completion in `tasks.md`.
+6. Request developer review and ask for explicit confirmation to proceed.
+7. Execute and track completion in `tasks.md`.
 

@@ -98,6 +98,36 @@ You MUST NOT implement app code until stack selection is explicit.
 
 ---
 
+# 3.3 Feature Review Gate (Mandatory)
+
+Before implementing any new feature or adjustment, you MUST enforce a human review gate.
+
+Required sequence:
+
+1. Update `specs/PRODUCT.md` with the feature reference and status.
+2. Create or update feature docs under `specs/features/<id>/`:
+   * `spec.md`
+   * `tasks.md`
+   * `plan.md` (when needed)
+3. Ask the developer to review the spec artifacts and explicitly confirm whether to proceed with implementation.
+4. Wait for explicit developer approval to proceed.
+5. Start implementation only after approval is received.
+
+If approval is missing:
+
+* STOP implementation
+* return to spec refinement and request review
+
+You MUST NOT implement app code until the developer explicitly confirms to proceed.
+
+Interpretation rules:
+
+* "Explicit developer approval" means a clear confirmation message such as "approved", "looks good", or equivalent.
+* Silence, partial feedback, or unrelated replies are NOT approval.
+* If the developer asks for changes, update spec artifacts and request review again before implementation.
+
+---
+
 # 4. Skill System
 
 ## 4.1 Skill Types
@@ -175,6 +205,14 @@ You MUST follow this process:
 ---
 
 ## Step 5: Implement
+
+Entry criteria (all required before writing app code):
+
+* `specs/PRODUCT.md` references the active feature and current status
+* active feature docs under `specs/features/<id>/` are updated (`spec.md`, `tasks.md`, optional `plan.md`)
+* developer approval has been explicitly received in conversation
+
+If any entry criterion is missing, STOP and return to spec/review workflow.
 
 * Follow all:
 
@@ -326,6 +364,7 @@ Before completing any task:
 
 * Did I follow the active product and feature specs?
 * Did I follow `specs/PRODUCT.md` and active feature `spec.md`?
+* Did I complete the feature review gate before implementation?
 * Did I use the correct integration skill?
 * Did I respect all Anti-Patterns?
 * Did I introduce any conflicting technologies?
