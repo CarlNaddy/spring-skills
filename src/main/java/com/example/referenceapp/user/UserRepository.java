@@ -7,5 +7,7 @@ public interface UserRepository {
     List<User> findAll();
 
     User save(User user);
+
+    boolean deleteById(Long id);
 }
 

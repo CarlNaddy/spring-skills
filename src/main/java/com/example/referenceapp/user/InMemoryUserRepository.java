@@ -26,5 +26,10 @@ public class InMemoryUserRepository implements UserRepository {
         users.add(savedUser);
         return savedUser;
     }
+
+    @Override
+    public boolean deleteById(Long id) {
+        return users.removeIf(user -> user.id().equals(id));
+    }
 }
 

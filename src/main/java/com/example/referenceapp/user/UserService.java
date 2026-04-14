@@ -21,5 +21,9 @@ public class UserService {
         User user = new User(null, userForm.getName().trim(), userForm.getEmail().trim().toLowerCase());
         return userRepository.save(user);
     }
+
+    public boolean deleteById(Long id) {
+        return userRepository.deleteById(id);
+    }
 }
 

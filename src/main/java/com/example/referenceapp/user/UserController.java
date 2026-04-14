@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -57,6 +58,24 @@ public class UserController {
             model.addAttribute("userForm", new UserForm());
             model.addAttribute("users", userService.findAll());
             model.addAttribute("successMessage", "User created successfully.");
+            return "users/index :: userSection";
+        }
+        return "redirect:/users";
+    }
+
+    @PostMapping("/users/{id}/delete")
+    public String deleteUser(@PathVariable("id") Long id,
+                             @RequestHeader(value = "HX-Request", required = false) String htmxRequest,
+                             Model model,
+                             RedirectAttributes redirectAttributes) {
+        boolean removed = userService.deleteById(id);
+        String message = removed ? "User deleted successfully." : "User was already removed.";
+
+        redirectAttributes.addFlashAttribute("successMessage", message);
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("successMessage", message);
+
+        if (isHtmx(htmxRequest)) {
             return "users/index :: userSection";
         }
         return "redirect:/users";
