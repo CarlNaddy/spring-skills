@@ -107,6 +107,15 @@ Expected flow:
 4. Optionally start from specialized templates in `specs/features/templates/` (`crud`, `auth-hardening`, `pagination`).
 5. Implement and verify against acceptance criteria.
 
+## Start From Scratch
+
+You can use this framework without the example app:
+
+1. Keep only the `ai/` folder.
+2. Create a new project codebase (Spring Boot, or another stack from `ai/STACKS.md`).
+3. Prompt your product idea and let the agent scaffold `specs/PRODUCT.md` and feature files automatically.
+4. Review the generated specs, confirm the stack from `ai/STACKS.md`, and iterate with follow-up prompts.
+
 ## Check It Out Fast
 
 1. Run the app:
