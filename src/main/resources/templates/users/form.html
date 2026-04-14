@@ -14,6 +14,8 @@
 
         <div th:replace="~{components/input :: input('name', 'Name', 'text', 'e.g. Ada Lovelace', ${#fields.hasErrors('name')}, ${#fields.hasErrors('name') ? #fields.errors('name')[0] : ''})}"></div>
         <div th:replace="~{components/input :: input('email', 'Email', 'email', 'e.g. ada@example.com', ${#fields.hasErrors('email')}, ${#fields.hasErrors('email') ? #fields.errors('email')[0] : ''})}"></div>
+        <div th:replace="~{components/input :: input('address', 'Address (optional)', 'text', 'e.g. 123 Main St', false, '')}"></div>
+        <div th:replace="~{components/input :: input('phoneNumber', 'Phone Number (optional)', 'tel', 'e.g. +1 555 123 4567', false, '')}"></div>
 
         <div th:replace="~{components/button :: button('Create User', 'primary', 'submit')}"></div>
     </form>

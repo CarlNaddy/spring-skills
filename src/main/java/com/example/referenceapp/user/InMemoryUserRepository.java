@@ -30,7 +30,13 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public User save(User user) {
-        User savedUser = new User(sequence.incrementAndGet(), user.name(), user.email());
+        User savedUser = new User(
+                sequence.incrementAndGet(),
+                user.name(),
+                user.email(),
+                user.address(),
+                user.phoneNumber()
+        );
         users.add(savedUser);
         return savedUser;
     }

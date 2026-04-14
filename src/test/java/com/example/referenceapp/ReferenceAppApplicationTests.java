@@ -70,7 +70,7 @@ class ReferenceAppApplicationTests {
     @Test
     @WithMockUser
     void userDetailShouldRenderForExistingUser() throws Exception {
-        User user = userRepository.save(new User(null, "Detail User", "detail@example.com"));
+        User user = userRepository.save(new User(null, "Detail User", "detail@example.com", null, null));
 
         mockMvc.perform(get("/users/" + user.id()))
                 .andExpect(status().isOk())

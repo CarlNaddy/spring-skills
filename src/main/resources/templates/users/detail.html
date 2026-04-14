@@ -26,6 +26,14 @@
                     <dt class="text-sm font-medium text-slate-600">Email</dt>
                     <dd class="text-sm text-slate-900 sm:col-span-2" th:text="${user.email()}">jane@example.com</dd>
                 </div>
+                <div class="grid grid-cols-1 gap-2 px-4 py-3 sm:grid-cols-3">
+                    <dt class="text-sm font-medium text-slate-600">Address</dt>
+                    <dd class="text-sm text-slate-900 sm:col-span-2" th:text="${user.address() != null ? user.address() : 'Not provided'}">Not provided</dd>
+                </div>
+                <div class="grid grid-cols-1 gap-2 px-4 py-3 sm:grid-cols-3">
+                    <dt class="text-sm font-medium text-slate-600">Phone Number</dt>
+                    <dd class="text-sm text-slate-900 sm:col-span-2" th:text="${user.phoneNumber() != null ? user.phoneNumber() : 'Not provided'}">Not provided</dd>
+                </div>
             </dl>
         </div>
     </section>

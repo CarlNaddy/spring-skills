@@ -11,6 +11,8 @@ public class UserForm {
     @NotBlank(message = "Email is required.")
     @Email(message = "Email must be valid.")
     private String email;
+    private String address;
+    private String phoneNumber;
 
     public String getName() {
         return name;
@@ -26,6 +28,22 @@ public class UserForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
 

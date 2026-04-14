@@ -23,12 +23,26 @@ public class UserService {
     }
 
     public User create(UserForm userForm) {
-        User user = new User(null, userForm.getName().trim(), userForm.getEmail().trim().toLowerCase());
+        User user = new User(
+                null,
+                userForm.getName().trim(),
+                userForm.getEmail().trim().toLowerCase(),
+                normalizeOptional(userForm.getAddress()),
+                normalizeOptional(userForm.getPhoneNumber())
+        );
         return userRepository.save(user);
     }
 
     public boolean deleteById(Long id) {
         return userRepository.deleteById(id);
+    }
+
+    private String normalizeOptional(String value) {
+        if (value == null) {
+            return null;
+        }
+        String normalized = value.trim();
+        return normalized.isEmpty() ? null : normalized;
     }
 }
 
