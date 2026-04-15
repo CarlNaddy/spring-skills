@@ -13,6 +13,9 @@ After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected
 - Integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
 - Rendering model: SSR (server-rendered HTML)
 - UI communication: server returns HTML fragments/pages (not JSON)
+- Baseline runtime target:
+  - Java `17`
+  - Spring Boot `3.4.x`
 - Best for:
   - server-rendered apps
   - progressive enhancement with HTMX
@@ -48,6 +51,9 @@ Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project ba
 - Integration skill: `.ai/skills/spring-react-integration/SKILL.md`
 - Rendering model: SPA (client-rendered)
 - UI communication: REST + JSON
+- Baseline runtime target:
+  - Java `17`
+  - Spring Boot `3.4.x`
 - Best for:
   - rich client interactivity
   - highly dynamic frontend flows

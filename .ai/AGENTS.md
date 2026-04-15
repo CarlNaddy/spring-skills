@@ -184,6 +184,9 @@ You MUST follow this process:
 * Load selected integration skill only
 * Load only required skills from integration skill `Requirements`
 * Ensure Spring Boot stacks include `spring-boot-devtools` unless explicitly disabled by developer instruction
+* Read framework/runtime versions from `specs/PRODUCT.md` and the active build file (`pom.xml` or `build.gradle`) before generating code
+* Generate code compatible with the project's selected Java and Spring Boot versions; avoid APIs requiring newer incompatible versions
+* Do NOT upgrade Java or Spring Boot major/minor versions unless the developer explicitly requests it
 * Ensure selected stack required skills are documented in `specs/PRODUCT.md`
 * For UI styling, select one primary styling skill for the whole project (`tailwindcss` or `bootstrap-ui-framework`)
 * Do NOT mix Tailwind and Bootstrap in one project; if migrating, use a dedicated migration feature and remove the old styling skill from `specs/PRODUCT.md`
@@ -242,6 +245,7 @@ Before finishing, verify:
 * Feature acceptance criteria in `specs/features/<id>/spec.md` are satisfied
 * `tasks.md` reflects completed work status
 * If security/static asset behavior changed, automated tests assert anonymous static asset access (expected `200`) and protected route authentication enforcement
+* Generated code is compatible with Java/Spring Boot versions declared in policy and build files
 
 ---
 

@@ -24,6 +24,14 @@ The application follows a clean, maintainable architecture using server-side ren
 - Selection rationale: Matches current SSR Thymeleaf + HTMX app architecture, avoids SPA migration, and aligns with project-wide Bootstrap + local-assets policy.
 - Selected by / date: developer / 2026-04-14
 
+### Runtime and framework versions
+
+- Java: `17`
+- Spring Boot parent: `3.4.4` (generate code compatible with Spring Boot `3.4.x`)
+- Spring Framework and Spring Security versions: managed by the Spring Boot BOM (do not hardcode conflicting versions in dependencies)
+- Version change policy: do not upgrade Java/Spring Boot major or minor versions unless explicitly requested by the developer
+- Compatibility policy: generated code must target the selected stack and the versions above
+
 ---
 
 ## Product capabilities
