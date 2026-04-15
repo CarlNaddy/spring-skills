@@ -13,11 +13,12 @@ This folder is the project-owned planning and execution space.
 
 1. Update `PRODUCT.md` with current priorities.
 2. If stack is not selected, choose one from `.ai/STACKS.md` and record it in `PRODUCT.md` with required skills.
-3. Decide one project-wide styling skill (`tailwindcss` or `bootstrap-ui-framework`) and record it in `PRODUCT.md`.
-4. Record UI asset delivery policy in `PRODUCT.md` (default: local static assets, no CDN runtime dependencies) and follow `.ai/guides/local-ui-assets.md`.
-5. Create `features/<id>/` for work that is ready to implement.
-6. Write `spec.md` with acceptance criteria first.
-7. Add `plan.md` only when there are meaningful design choices.
-8. Request developer review and ask for explicit confirmation to proceed.
-9. Execute and track completion in `tasks.md`.
+3. Record runtime/framework targets in `PRODUCT.md` before implementation (Java + Spring Boot line, and version change policy).
+4. Decide one project-wide styling skill (`tailwindcss` or `bootstrap-ui-framework`) and record it in `PRODUCT.md`.
+5. Record UI asset delivery policy in `PRODUCT.md` (default: local static assets, no CDN runtime dependencies) and follow `.ai/guides/local-ui-assets.md`.
+6. Create `features/<id>/` for work that is ready to implement.
+7. Write `spec.md` with acceptance criteria first.
+8. Add `plan.md` only when there are meaningful design choices.
+9. Request developer review and ask for explicit confirmation to proceed.
+10. Execute and track completion in `tasks.md`.
 

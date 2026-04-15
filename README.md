@@ -116,6 +116,16 @@ Expected flow:
 
 You can use this framework without the example app:
 
+### Prerequisites before starting a new project
+
+Set and record runtime/framework versions first (before implementation):
+
+- Java version target (default in this repo: `17`)
+- Spring Boot target line (default in this repo: `3.4.x`; current parent `3.4.4`)
+- Version policy: no Java/Spring Boot major or minor upgrades unless explicitly approved
+
+Record these in `specs/PRODUCT.md` and keep generated code compatible with them.
+
 1. Keep only the `.ai/` folder.
 2. Create a new project codebase (Spring Boot, or another stack from `.ai/STACKS.md`).
 3. Prompt your product idea and let the agent scaffold `specs/PRODUCT.md` and feature files automatically.
