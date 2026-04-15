@@ -33,6 +33,9 @@ Use when product or feature specs require Bootstrap-based UI or responsive compo
 - Prefer Bootstrap classes (`container`, `row`, `col-*`, `card`, `btn`, `form-control`, `table`) over ad-hoc custom CSS.
 - Keep custom CSS minimal and focused on app polish, not replacing Bootstrap primitives.
 - Use stable IDs for HTMX targets so Bootstrap layout wrappers survive partial updates.
+- Bootstrap CSS/JS must be served from local project assets (for example `src/main/resources/static/vendor/bootstrap/...`), not CDN links.
+- Fonts/icons used by UI must be stored and served from local static assets unless spec explicitly approves external hosting.
+- See `.ai/guides/local-ui-assets.md` for concrete local installation and asset wiring steps.
 
 ---
 
@@ -73,6 +76,7 @@ Use when product or feature specs require Bootstrap-based UI or responsive compo
 - Bootstrap version family: 5.x
 - Visual baseline: component-first, utility-assisted
 - CSS strategy: Bootstrap first, minimal custom CSS
+- Asset delivery: local static files (no CDN by default)
 
 ---
 
@@ -81,3 +85,4 @@ Use when product or feature specs require Bootstrap-based UI or responsive compo
 - Do NOT mix Bootstrap and Tailwind in the same project.
 - Do NOT rebuild Bootstrap components with large custom CSS blocks.
 - Do NOT use Bootstrap JavaScript widgets when plain HTMX + server rendering is sufficient.
+- Do NOT load Bootstrap, fonts, or icon packs from CDN URLs in templates/layouts by default.

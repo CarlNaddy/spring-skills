@@ -86,6 +86,7 @@ The application follows a clean, maintainable architecture using server-side ren
 - Use HTMX for dynamic interactions
 - Use session-based authentication
 - Use reusable UI components
+- Use local static assets for UI dependencies (Bootstrap/Tailwind, fonts, icons); avoid CDN runtime dependencies by default
 
 ---
 

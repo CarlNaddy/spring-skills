@@ -30,6 +30,7 @@ The current UI lacks a consistent Bootstrap-based structure for layout, responsi
 - Keep rendering server-driven (Thymeleaf templates + fragments).
 - Maintain accessibility basics (`label for`, `scope="col"`, ARIA labels on toggles/buttons).
 - Ensure fragment swaps retain required Bootstrap wrappers/chrome.
+- Serve Bootstrap, fonts, and related static UI assets from local project files (no CDN by default).
 
 ## Acceptance criteria
 
@@ -38,6 +39,7 @@ The current UI lacks a consistent Bootstrap-based structure for layout, responsi
 - [ ] HTMX interactions still target/update the correct DOM regions
 - [ ] Validation states/messages render with Bootstrap feedback patterns
 - [ ] No Tailwind classes are introduced in this feature unless explicitly approved
+- [ ] Bootstrap/fonts/icons are loaded from local static assets, not CDN URLs
 
 ## Dependencies
 

@@ -187,6 +187,7 @@ You MUST follow this process:
 * Ensure selected stack required skills are documented in `specs/PRODUCT.md`
 * For UI styling, select one primary styling skill for the whole project (`tailwindcss` or `bootstrap-ui-framework`)
 * Do NOT mix Tailwind and Bootstrap in one project; if migrating, use a dedicated migration feature and remove the old styling skill from `specs/PRODUCT.md`
+* Use local static assets for UI dependencies (CSS/JS/fonts/icons). Do NOT introduce CDN-hosted runtime assets unless the developer explicitly approves an exception in spec
 * Map features -> additional feature skills that do not conflict
 
 ---
@@ -320,6 +321,7 @@ You MUST NOT:
 * introduce frameworks not defined in SPEC
 * violate skill Anti-Patterns
 * invent new architecture patterns
+* add Bootstrap, fonts, or other UI runtime assets from public CDN by default
 
 ---
 

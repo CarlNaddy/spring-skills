@@ -58,6 +58,11 @@ if ! grep -Eq "Required stack skills:" specs/PRODUCT.md; then
   exit 1
 fi
 
+if ! grep -Eqi "local static assets|no CDN|avoid CDN" specs/PRODUCT.md; then
+  echo "specs/PRODUCT.md must define UI asset delivery policy (local static assets, no CDN by default)."
+  exit 1
+fi
+
 if grep -Eq '`tailwindcss`' specs/PRODUCT.md && grep -Eq '`bootstrap-ui-framework`' specs/PRODUCT.md; then
   echo "specs/PRODUCT.md cannot include both tailwindcss and bootstrap-ui-framework."
   exit 1

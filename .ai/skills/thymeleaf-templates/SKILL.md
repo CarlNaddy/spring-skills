@@ -53,6 +53,7 @@ Use a base layout and extend it.
 ### Required Rule (Asset Safety)
 
 - Base layout must own shared `<head>` assets (Tailwind, HTMX, meta, title)
+- Shared UI assets (CSS/JS/fonts/icons) must be referenced from local project paths under static resources (no CDN by default)
 - Full pages (`index.html`, `login.html`, etc.) must render through the base layout at the root `<html>` level
 - Do NOT compose pages by replacing only `<body>`/`<main>` if that bypasses `<head>`
 
@@ -159,6 +160,7 @@ Use a base layout and extend it.
 * Do NOT mix with SPA frameworks
 * Do NOT return full pages for HTMX updates
 * Do NOT define Tailwind/HTMX scripts in templates that are not guaranteed to render in final HTML
+* Do NOT reference CSS/JS/font/icon CDN URLs in page templates or fragments by default
 
 ---
 
@@ -167,6 +169,7 @@ Use a base layout and extend it.
 Before finishing:
 
 - Open page source and confirm Tailwind/HTMX scripts are present in `<head>`
+- Confirm shared CSS/JS/fonts/icons are loaded from local static paths
 - Confirm full-page routes render full document structure
 - Confirm HTMX routes return fragment-only HTML
 
