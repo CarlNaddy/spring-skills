@@ -24,6 +24,7 @@ required_template_dirs=(
   "specs/features/templates/crud"
   "specs/features/templates/auth-hardening"
   "specs/features/templates/pagination"
+  "specs/features/templates/bootstrap-ui"
 )
 
 for dir in "${required_template_dirs[@]}"; do
@@ -54,6 +55,11 @@ fi
 
 if ! grep -Eq "Required stack skills:" specs/PRODUCT.md; then
   echo "specs/PRODUCT.md must include required stack skills."
+  exit 1
+fi
+
+if grep -Eq '`tailwindcss`' specs/PRODUCT.md && grep -Eq '`bootstrap-ui-framework`' specs/PRODUCT.md; then
+  echo "specs/PRODUCT.md cannot include both tailwindcss and bootstrap-ui-framework."
   exit 1
 fi
 

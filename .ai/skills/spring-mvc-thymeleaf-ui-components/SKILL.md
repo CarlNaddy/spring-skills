@@ -116,7 +116,12 @@ Components can be composed of other components.
 
 ## Styling
 
-Use utility-first styling (e.g. TailwindCSS) or consistent CSS classes.
+Use one consistent styling strategy for the feature:
+
+- Utility-first (`tailwindcss`), or
+- Component/utility framework (`bootstrap-ui-framework`)
+
+Do not mix Tailwind and Bootstrap unless explicitly approved in spec.
 
 ---
 

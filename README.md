@@ -74,6 +74,10 @@ Create feature auth-hardening using specs/features/templates/auth-hardening and 
 Create feature user-pagination using specs/features/templates/pagination, then implement the first slice.
 ```
 
+```text
+Create feature admin-bootstrap-refresh using specs/features/templates/bootstrap-ui and scaffold spec/tasks/plan.
+```
+
 ## Example Implementation
 
 The included Spring app is a demo vehicle that shows the framework in action:
@@ -105,7 +109,7 @@ Expected flow:
 1. Set product direction in `specs/PRODUCT.md`.
 2. Create a feature folder: `specs/features/<id>/`.
 3. Use template files from `specs/features/TEMPLATE/`.
-4. Optionally start from specialized templates in `specs/features/templates/` (`crud`, `auth-hardening`, `pagination`).
+4. Optionally start from specialized templates in `specs/features/templates/` (`crud`, `auth-hardening`, `pagination`, `bootstrap-ui`).
 5. Implement and verify against acceptance criteria.
 
 ## Start From Scratch
@@ -139,7 +143,7 @@ You can use this framework without the example app:
 - [x] Specs-based feature scaffolding templates
 - [x] Reference app with SSR + HTMX example
 - [ ] Demo visuals (GIF + screenshots)
-- [x] Additional feature templates (CRUD, auth hardening, pagination)
+- [x] Additional feature templates (CRUD, auth hardening, pagination, bootstrap-ui)
 - [x] CI checks for specs and template consistency
 
 ---

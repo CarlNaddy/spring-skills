@@ -28,6 +28,14 @@ After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected
 - `htmx-interactions`
 - `spring-boot-devtools`
 
+### Common optional UI skills
+
+- `tailwindcss`
+- `bootstrap-ui-framework`
+
+Use exactly one primary CSS framework skill per project.
+Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project baseline.
+
 ### Conflicts
 
 - `react-frontend`

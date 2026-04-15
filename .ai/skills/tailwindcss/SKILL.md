@@ -3,6 +3,14 @@
 ## Type
 styling
 
+## Requirements
+
+- thymeleaf-templates
+
+## Conflicts
+
+- bootstrap-ui-framework
+
 ## When to Use
 
 Use for utility-first CSS styling.
@@ -18,4 +26,4 @@ Use for utility-first CSS styling.
 
 ## Anti-Patterns
 
-- Do NOT mix with other CSS frameworks
+- Do NOT mix with Bootstrap in the same project

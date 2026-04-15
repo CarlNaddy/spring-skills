@@ -185,6 +185,8 @@ You MUST follow this process:
 * Load only required skills from integration skill `Requirements`
 * Ensure Spring Boot stacks include `spring-boot-devtools` unless explicitly disabled by developer instruction
 * Ensure selected stack required skills are documented in `specs/PRODUCT.md`
+* For UI styling, select one primary styling skill for the whole project (`tailwindcss` or `bootstrap-ui-framework`)
+* Do NOT mix Tailwind and Bootstrap in one project; if migrating, use a dedicated migration feature and remove the old styling skill from `specs/PRODUCT.md`
 * Map features -> additional feature skills that do not conflict
 
 ---

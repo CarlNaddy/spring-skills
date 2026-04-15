@@ -15,4 +15,5 @@ Optional pattern templates are available in `templates/`:
 - `templates/crud/`
 - `templates/auth-hardening/`
 - `templates/pagination/`
+- `templates/bootstrap-ui/`
 
