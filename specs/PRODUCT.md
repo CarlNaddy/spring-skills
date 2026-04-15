@@ -88,6 +88,13 @@ The application follows a clean, maintainable architecture using server-side ren
 - Use reusable UI components
 - Use local static assets for UI dependencies (Bootstrap/Tailwind, fonts, icons); avoid CDN runtime dependencies by default
 
+### Java code style (no Lombok baseline)
+
+- Do not add Lombok as a project dependency by default
+- Prefer Java `record` for immutable request/response/view DTOs and other web-facing data carriers
+- Prefer constructor-based binding/injection over mutable property patterns where practical
+- Use explicit classes only when mutability or framework constraints require it (for example, JPA entities)
+
 ---
 
 ## Defaults
