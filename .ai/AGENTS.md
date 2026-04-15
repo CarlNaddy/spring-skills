@@ -312,6 +312,7 @@ Before finishing, verify:
 
 * Avoid unnecessary complexity
 * Prefer simple solutions
+* In Java 17 Spring MVC stacks without Lombok, prefer Java `record` for immutable request/response/view DTOs; use explicit classes only when mutability or framework constraints require it
 
 ---
 
