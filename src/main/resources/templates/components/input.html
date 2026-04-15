@@ -1,12 +1,12 @@
-<div th:fragment="input(fieldName, label, inputType, placeholder, hasError, errorText)" class="space-y-1">
-    <label class="block text-sm font-medium text-slate-700" th:for="${fieldName}" th:text="${label}">Label</label>
-    <input class="w-full rounded-md border px-3 py-2 text-sm outline-none transition"
+<div th:fragment="input(fieldName, label, inputType, placeholder, hasError, errorText)" class="mb-3">
+    <label class="form-label" th:for="${fieldName}" th:text="${label}">Label</label>
+    <input class="form-control"
            th:id="${fieldName}"
            th:name="${fieldName}"
            th:type="${inputType ?: 'text'}"
            th:placeholder="${placeholder ?: ''}"
            th:value="${#fields.hasAnyErrors() ? #fields.fieldValue(fieldName) : ''}"
-           th:classappend="${hasError} ? ' border-red-400 focus:ring-2 focus:ring-red-200' : ' border-slate-300 focus:ring-2 focus:ring-blue-200'">
-    <p class="text-sm text-red-600" th:if="${hasError}" th:text="${errorText}">Invalid input</p>
+           th:classappend="${hasError} ? ' is-invalid' : ''">
+    <div class="invalid-feedback d-block" th:if="${hasError}" th:text="${errorText}">Invalid input</div>
 </div>
 

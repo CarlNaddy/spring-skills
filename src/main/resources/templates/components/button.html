@@ -1,8 +1,8 @@
 <button th:fragment="button(label, type, buttonType)"
         th:text="${label}"
         th:type="${buttonType ?: 'button'}"
-        th:classappend="${type == 'primary'} ? ' bg-blue-600 text-white hover:bg-blue-700' : ' bg-slate-200 text-slate-900 hover:bg-slate-300'"
-        class="rounded-md px-4 py-2 text-sm font-medium transition">
+        th:classappend="${type == 'primary'} ? ' btn-primary' : ' btn-outline-secondary'"
+        class="btn">
     Action
 </button>
 

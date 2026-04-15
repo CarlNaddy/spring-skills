@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${title}">Reference App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <script defer th:src="@{/vendor/htmx/htmx.min.js}"></script>
+    <script defer th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-900">
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary text-body" data-bs-theme="dark">
 <div th:replace="~{fragments/header :: header}"></div>
 
-<main class="mx-auto max-w-5xl px-4 py-8">
+<main class="container py-4 flex-grow-1">
     <th:block th:replace="${content}"></th:block>
 </main>
 

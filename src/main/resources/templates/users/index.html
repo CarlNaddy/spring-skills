@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/base :: layout('Users', ~{::section})}">
-    <section th:fragment="userSection" id="users-panel" class="space-y-6">
-        <div class="flex items-center justify-between">
-            <h1 class="text-2xl font-semibold">Users</h1>
-            <button class="rounded-md bg-white px-3 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-300 hover:bg-slate-100"
+    <section th:fragment="userSection" id="users-panel" class="d-grid gap-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="h3 mb-0">Users</h1>
+            <button class="btn btn-outline-secondary btn-sm"
                     hx-get="/users/list"
                     hx-target="#user-list-container"
                     hx-swap="outerHTML">
@@ -11,14 +11,14 @@
             </button>
         </div>
 
-        <div th:if="${successMessage}" class="rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800"
+        <div th:if="${successMessage}" class="alert alert-success mb-0"
              th:text="${successMessage}">
             User created successfully.
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2">
-            <div th:replace="~{users/form :: userForm}"></div>
-            <div th:replace="~{users/list :: userListContainer}"></div>
+        <div class="row g-4">
+            <div class="col-12 col-lg-6" th:replace="~{users/form :: userForm}"></div>
+            <div class="col-12 col-lg-6" th:replace="~{users/list :: userListContainer}"></div>
         </div>
     </section>
 </html>

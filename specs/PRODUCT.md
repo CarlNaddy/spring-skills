@@ -18,10 +18,10 @@ The application follows a clean, maintainable architecture using server-side ren
   - `htmx-interactions`
   - `spring-boot-devtools`
 - Baseline app skills (in use for current product):
-  - `tailwindcss`
+  - `bootstrap-ui-framework`
   - `spring-mvc-auth-session`
   - `spring-mvc-thymeleaf-ui-components`
-- Selection rationale: Matches current SSR Thymeleaf + HTMX app architecture and avoids SPA migration.
+- Selection rationale: Matches current SSR Thymeleaf + HTMX app architecture, avoids SPA migration, and aligns with project-wide Bootstrap + local-assets policy.
 - Selected by / date: developer / 2026-04-14
 
 ---
@@ -131,20 +131,21 @@ The application follows a clean, maintainable architecture using server-side ren
 
 ## Current priorities
 
-- Priority 1: Implement per-user todo list on user detail view (`specs/features/003-user-todos/`)
-- Priority 2: Keep user detail navigation stable (`specs/features/002-user-detail-view/`)
-- Priority 3: Maintain delete user flow (`specs/features/001-delete-users/`)
+- Priority 1: Migrate UI from Tailwind to Bootstrap with local assets (`specs/features/004-bootstrap-ui-migration/`)
+- Priority 2: Keep per-user todo list behavior stable (`specs/features/003-user-todos/`)
+- Priority 3: Keep user detail navigation and delete flows stable (`specs/features/002-user-detail-view/`, `specs/features/001-delete-users/`)
 
 ## In scope now
 
-- Show a per-user todo list on the user detail page
-- Allow adding, deleting, and marking todos as done for a specific user
-- Keep existing user detail navigation and user information rendering intact
+- Migrate current SSR templates/fragments from Tailwind to Bootstrap
+- Serve Bootstrap/fonts/icons from local static assets (no CDN runtime dependencies)
+- Preserve existing login, user list/detail, and todo behavior during migration
 
 ## Out of scope now
 
-- Editing todo items
-- Cross-user/bulk todo management
+- New product capabilities beyond UI migration
+- SPA/API architecture changes
+- Mixed Tailwind + Bootstrap project baseline
 
 ---
 
@@ -165,5 +166,5 @@ The application follows a clean, maintainable architecture using server-side ren
 - Follow all skill rules strictly.
 - Do not introduce unnecessary abstractions.
 - Link active feature specs under `specs/features/`.
-- Active feature: `specs/features/003-user-todos/spec.md`
+- Active feature: `specs/features/004-bootstrap-ui-migration/spec.md`
 
