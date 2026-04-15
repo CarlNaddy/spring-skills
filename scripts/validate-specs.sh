@@ -4,8 +4,8 @@ set -euo pipefail
 echo "Validating specs structure..."
 
 required_files=(
-  "ai/AGENT.md"
-  "ai/STACKS.md"
+  ".ai/AGENTS.md"
+  ".ai/STACKS.md"
   "specs/README.md"
   "specs/PRODUCT.md"
   "specs/features/README.md"

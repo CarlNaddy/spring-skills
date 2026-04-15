@@ -5,7 +5,7 @@
 A reusable AI framework for building Java web apps with consistent architecture and fast feature delivery.
 
 This repository showcases:
-- a portable skills system (`ai/`),
+- a portable skills system (`.ai/`),
 - a specs-driven feature workflow (`specs/`),
 - and a reference application used only as an example implementation.
 
@@ -20,9 +20,9 @@ Add your visuals here to make first-time visitors understand value quickly:
 
 The core value is the AI skills framework:
 
-- `ai/AGENT.md` defines workflow and guardrails.
-- `ai/skills/**` contains atomic + integration skills.
-- `ai/STACKS.md` is the stack catalog the agent uses for selection.
+- `.ai/AGENTS.md` defines workflow and guardrails.
+- `.ai/skills/**` contains atomic + integration skills.
+- `.ai/STACKS.md` is the stack catalog the agent uses for selection.
 - The agent must record selected stack and required skills in `specs/PRODUCT.md` before implementation.
 - Spring Boot stacks include `spring-boot-devtools` by default (`pom.xml` with `<optional>true</optional>` for development-only behavior).
 
@@ -37,7 +37,7 @@ Compared to ad-hoc prompting:
 
 ## Supported Java/Spring Stacks
 
-Defined in `ai/STACKS.md`:
+Defined in `.ai/STACKS.md`:
 
 - `spring-thymeleaf-htmx`
   - Spring MVC (SSR), Thymeleaf templates, HTMX interactivity
@@ -92,7 +92,7 @@ Use prompts like:
 
 Expected flow:
 
-1. Agent checks selected stack (or asks to choose from `ai/STACKS.md`).
+1. Agent checks selected stack (or asks to choose from `.ai/STACKS.md`).
 2. Agent scaffolds `specs/features/<id>/` (commonly `NNN-short-title`).
 3. Agent creates:
    - `spec.md` (requirements + acceptance criteria)
@@ -112,10 +112,10 @@ Expected flow:
 
 You can use this framework without the example app:
 
-1. Keep only the `ai/` folder.
-2. Create a new project codebase (Spring Boot, or another stack from `ai/STACKS.md`).
+1. Keep only the `.ai/` folder.
+2. Create a new project codebase (Spring Boot, or another stack from `.ai/STACKS.md`).
 3. Prompt your product idea and let the agent scaffold `specs/PRODUCT.md` and feature files automatically.
-4. Review the generated specs, confirm the stack from `ai/STACKS.md`, and iterate with follow-up prompts.
+4. Review the generated specs, confirm the stack from `.ai/STACKS.md`, and iterate with follow-up prompts.
 
 ## Check It Out Fast
 
@@ -129,7 +129,7 @@ You can use this framework without the example app:
 
 ## Repository Map
 
-- `ai/` - portable AI framework (`AGENT.md`, skills, stack catalog)
+- `.ai/` - portable AI framework (`AGENTS.md`, skills, stack catalog)
 - `specs/` - product and feature requirements
 - `src/` - Spring Boot application code
 

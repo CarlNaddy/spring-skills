@@ -1,1 +1,0 @@
-Follow ai/AGENT.md and the project workspace (`ai/STACKS.md` + `specs/PRODUCT.md` + `specs/features/**/spec.md`).

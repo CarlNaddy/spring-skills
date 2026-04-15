@@ -11,7 +11,7 @@ The application follows a clean, maintainable architecture using server-side ren
 ## Selected stack
 
 - Stack ID: `spring-thymeleaf-htmx`
-- Integration skill path: `ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
+- Integration skill path: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
 - Required stack skills:
   - `spring-mvc`
   - `thymeleaf-templates`

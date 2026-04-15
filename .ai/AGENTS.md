@@ -34,7 +34,7 @@ If there is a conflict:
 
 You must read and understand:
 
-* `ai/STACKS.md`
+* `.ai/STACKS.md`
 * `specs/PRODUCT.md` (create it if missing)
 * active `specs/features/<id>/spec.md` (if present)
 * selected integration skill + required skills from its `Requirements`
@@ -44,8 +44,8 @@ You must read and understand:
 
 # 3.1 Product Planning Workspace
 
-Project-owned product artifacts must live in `specs/` (NOT in `ai/`).
-Exception: stack catalog lives in `ai/STACKS.md` as part of the portable skill package.
+Project-owned product artifacts must live in `specs/` (NOT in `.ai/`).
+Exception: stack catalog lives in `.ai/STACKS.md` as part of the portable skill package.
 
 Use this structure:
 
@@ -64,7 +64,7 @@ When the user says "create a new feature" (or equivalent), you MUST:
    * `tasks.md`
 3. Create `plan.md` when complexity/trade-offs justify planning
 4. Update `specs/PRODUCT.md` to reference the new feature and status
-5. Never create product-specific feature docs inside `ai/`
+5. Never create product-specific feature docs inside `.ai/`
 
 If `specs/features/TEMPLATE/` exists, use it as the default scaffold.
 Always scaffold new feature docs from `specs/features/TEMPLATE/` (do not create ad-hoc structures).
@@ -79,7 +79,7 @@ Before implementation, check `specs/PRODUCT.md` for selected stack.
 If no stack is selected:
 
 1. STOP implementation
-2. Present all options from `ai/STACKS.md` with trade-offs
+2. Present all options from `.ai/STACKS.md` with trade-offs
 3. Ask user to choose a stack explicitly
 4. Record selected stack in `specs/PRODUCT.md`, including:
    * stack ID
@@ -180,12 +180,12 @@ You MUST follow this process:
 ## Step 2: Select Skills
 
 * Resolve selected stack from `specs/PRODUCT.md`
-* If missing: pause and ask user to choose from `ai/STACKS.md`
+* If missing: pause and ask user to choose from `.ai/STACKS.md`
 * Load selected integration skill only
 * Load only required skills from integration skill `Requirements`
 * Ensure Spring Boot stacks include `spring-boot-devtools` unless explicitly disabled by developer instruction
 * Ensure selected stack required skills are documented in `specs/PRODUCT.md`
-* Map features → additional feature skills that do not conflict
+* Map features -> additional feature skills that do not conflict
 
 ---
 
@@ -373,7 +373,7 @@ Before completing any task:
 * Is the architecture consistent?
 
 If any answer is "no":
-→ Fix before continuing
+-> Fix before continuing
 
 ---
 

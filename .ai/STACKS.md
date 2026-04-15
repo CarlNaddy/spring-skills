@@ -10,7 +10,7 @@ After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected
 
 ## Stack: `spring-thymeleaf-htmx`
 
-- Integration skill: `ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
+- Integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
 - Rendering model: SSR (server-rendered HTML)
 - UI communication: server returns HTML fragments/pages (not JSON)
 - Best for:
@@ -37,7 +37,7 @@ After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected
 
 ## Stack: `spring-react`
 
-- Integration skill: `ai/skills/spring-react-integration/SKILL.md`
+- Integration skill: `.ai/skills/spring-react-integration/SKILL.md`
 - Rendering model: SPA (client-rendered)
 - UI communication: REST + JSON
 - Best for:

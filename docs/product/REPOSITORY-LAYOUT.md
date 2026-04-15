@@ -2,7 +2,7 @@
 
 This repository uses a simple split:
 
-- `ai/` is a portable skill pack (copied/imported into projects)
+- `.ai/` is a portable skill pack (copied/imported into projects)
 - `specs/` is project-owned product/spec execution workspace
 
 ---
@@ -11,7 +11,7 @@ This repository uses a simple split:
 
 ```text
 <project-root>/
-  ai/                        # portable package: AGENT + skills only
+  .ai/                       # portable package: AGENTS + skills only
   specs/
     PRODUCT.md               # one evolving product requirements document
     README.md                # process and status index
@@ -28,7 +28,7 @@ This repository uses a simple split:
 
 | Path | Purpose |
 |------|---------|
-| `ai/` | Reusable agent package; no project-specific product docs |
+| `.ai/` | Reusable agent package; no project-specific product docs |
 | `specs/PRODUCT.md` | Single evolving PRD for this product |
 | `specs/features/*/spec.md` | Exact behavior and acceptance criteria for one feature |
 | `specs/features/*/plan.md` | How to implement (only when useful) |
@@ -51,8 +51,8 @@ This repository uses a simple split:
 For implementation decisions in a project:
 
 1. Current feature `specs/features/<id>/spec.md` + accepted scope in `specs/PRODUCT.md`
-2. Relevant `ai/skills/**/SKILL.md`
-3. `ai/AGENT.md` defaults and constraints
+2. Relevant `.ai/skills/**/SKILL.md`
+3. `.ai/AGENTS.md` defaults and constraints
 
 If product requirements and skill constraints conflict, update requirements or architecture explicitly before coding.
 
@@ -61,6 +61,6 @@ If product requirements and skill constraints conflict, update requirements or a
 ## 5. Why this layout
 
 - Very low process overhead
-- Clear file ownership (portable `ai/` vs project `specs/`)
+- Clear file ownership (portable `.ai/` vs project `specs/`)
 - Easy review in pull requests
 - Scales from one evolving PRD to many feature folders without reorganization

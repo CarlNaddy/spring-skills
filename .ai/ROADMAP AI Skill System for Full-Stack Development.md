@@ -186,7 +186,7 @@ spring-react-integration
 # 6. Project Structure
 
 ```plaintext
-ai/
+.ai/
   skills/
     spring-rest-api/
       SKILL.md
@@ -230,7 +230,7 @@ Open the project in Cursor.
 ## Step 3: Prompt the AI
 
 ```text
-Read specs/PRODUCT.md, active specs/features/<id>/spec.md, ai/STACKS.md, and selected skills in ai/skills.
+Read specs/PRODUCT.md, active specs/features/<id>/spec.md, .ai/STACKS.md, and selected skills in .ai/skills.
 Determine relevant skills and follow their rules strictly.
 ```
 
@@ -301,7 +301,7 @@ Examples improve AI output significantly.
 ### Step 1: Create folder
 
 ```plaintext
-ai/skills/new-skill/
+.ai/skills/new-skill/
   SKILL.md
 ```
 

@@ -1,6 +1,6 @@
 # Product development plan (simplified)
 
-This plan uses one project-owned `specs/` workspace and keeps `ai/` portable.
+This plan uses one project-owned `specs/` workspace and keeps `.ai/` portable.
 
 See [REPOSITORY-LAYOUT.md](REPOSITORY-LAYOUT.md).
 
@@ -11,7 +11,7 @@ See [REPOSITORY-LAYOUT.md](REPOSITORY-LAYOUT.md).
 - Keep one evolving product requirements file.
 - Keep each feature self-contained and executable.
 - Keep process light: requirement, plan (optional), and tasks.
-- Keep `ai/` reusable and free of project-specific product docs.
+- Keep `.ai/` reusable and free of project-specific product docs.
 
 ---
 
