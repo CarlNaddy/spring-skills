@@ -36,6 +36,12 @@ class ReferenceAppApplicationTests {
     }
 
     @Test
+    void vendorAssetsShouldBePublic() throws Exception {
+        mockMvc.perform(get("/vendor/bootstrap/css/bootstrap.min.css"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
     void usersShouldRequireAuthentication() throws Exception {
         mockMvc.perform(get("/users"))
                 .andExpect(status().is3xxRedirection())

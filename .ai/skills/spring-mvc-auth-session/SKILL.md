@@ -45,16 +45,22 @@ Use when:
 - Use Spring Security
 - Enable form login
 - Enable CSRF protection
+- Keep login and static assets publicly accessible via `permitAll` rules placed before `anyRequest().authenticated()`
+- Prefer `permitAll` for static resources instead of `WebSecurityCustomizer` ignore rules so security headers still apply
 
 ---
 
 ## Login Configuration Example
 
 ```java
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+
 http
   .csrf().and()
   .authorizeHttpRequests(auth -> auth
-    .requestMatchers("/login", "/css/**").permitAll()
+    .requestMatchers("/login", "/error").permitAll()
+    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+    .requestMatchers("/vendor/**").permitAll()
     .anyRequest().authenticated()
   )
   .formLogin(form -> form
@@ -132,6 +138,19 @@ public String login() {
 * Logout URL: `/logout`
 * Session-based authentication
 * CSRF enabled
+* Public static assets for anonymous users:
+  * include `PathRequest.toStaticResources().atCommonLocations()`
+  * include project-specific static paths used by templates (for example `/vendor/**`)
+  * keep these matchers before `anyRequest().authenticated()`
+
+---
+
+## Regression Tests
+
+When security rules or static asset paths are changed, include `MockMvc` tests that verify:
+
+* anonymous `GET` to required static assets (for example `/vendor/...`) returns `200`
+* protected application routes still require authentication
 
 ---
 
