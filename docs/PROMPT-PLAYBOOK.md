@@ -23,7 +23,7 @@ Use stack <stack-id> from .ai/STACKS.md and record it in specs/PRODUCT.md with r
 Then scaffold the first feature specs only (no code).
 ```
 
-Valid stack IDs:
+Developer-selectable stack IDs:
 
 - `spring-thymeleaf-htmx`
 - `spring-react`
@@ -31,6 +31,23 @@ Valid stack IDs:
 - `spring-react-postgres`
 - `spring-thymeleaf-htmx-postgres-shared-tenant`
 - `spring-react-postgres-shared-tenant`
+
+Selection note:
+
+- Developer selects one stack from this list.
+- The stack maps to a primary integration skill.
+- Secondary integration skills and atomic skills are auto-resolved by the agent from stack requirements.
+
+### Choose UI baseline explicitly (optional but recommended)
+
+Use this when you want framework-level visual consistency from the start.
+Works for both Thymeleaf and React stacks.
+
+```text
+Set the primary UI skill for this project to <ui-skill> and record it in specs/PRODUCT.md.
+Allowed values: tailwindcss or bootstrap-ui-framework.
+Ensure only one primary UI skill is active for the project baseline.
+```
 
 ---
 
@@ -154,6 +171,21 @@ List any query/service path that could leak cross-tenant data and apply fixes wi
 ---
 
 ## 7) UI and Stack-Specific Prompts
+
+### Set or switch UI baseline
+
+```text
+Set the project primary UI skill to <ui-skill> in specs/PRODUCT.md and align upcoming implementation to it.
+Allowed values: tailwindcss or bootstrap-ui-framework.
+Do not mix both in the same project baseline.
+```
+
+### Audit UI baseline consistency
+
+```text
+Audit this project for UI baseline consistency with specs/PRODUCT.md.
+Flag any mixed Tailwind/Bootstrap usage and propose a migration-safe cleanup plan.
+```
 
 ### Thymeleaf + HTMX
 
