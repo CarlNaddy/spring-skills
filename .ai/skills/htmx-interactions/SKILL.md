@@ -20,6 +20,8 @@ Use when adding interactivity to server-rendered applications.
 - Use hx-get, hx-post for interactions
 - Always define hx-target
 - Use hx-swap to control DOM updates
+- Build HTMX URLs with Thymeleaf attributes (for example `th:attr="hx-post=@{/users}"`) so routes stay context-relative
+- In controllers, branch full-page vs fragment behavior using `HX-Request` header when endpoint behavior differs
 
 ---
 
@@ -28,6 +30,8 @@ Use when adding interactivity to server-rendered applications.
 - Replace content dynamically
 - Load partials from server
 - Submit forms via HTMX
+- For multi-region updates (table row append + form reset), prefer `hx-swap="none"` + out-of-band swaps from server fragments
+- For HTMX validation errors, set `HX-Retarget` and `HX-Reswap` headers to place error fragments in the intended container
 
 ---
 
@@ -59,6 +63,7 @@ Use when adding interactivity to server-rendered applications.
 
 * Server returns HTML (NOT JSON)
 * Prefer fragments for partial updates
+* Fragment payload must be structurally valid for target context (especially table updates via OOB `<template><tbody ...>`)
 
 ---
 

@@ -10,7 +10,7 @@ feature
 
 ## Conflicts
 
-- auth-jwt
+- spring-rest-auth-jwt
 - react-frontend
 
 ---
@@ -151,6 +151,7 @@ When security rules or static asset paths are changed, include `MockMvc` tests t
 
 * anonymous `GET` to required static assets (for example `/vendor/...`) returns `200`
 * protected application routes still require authentication
+* browser-style security behavior is asserted with `Accept: text/html` when testing login redirects (to avoid API-style 401 expectations in ambiguous requests)
 
 ---
 
