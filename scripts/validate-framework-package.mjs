@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(SCRIPT_DIR, "..");
-const PACKAGE_PATH = path.join(ROOT_DIR, "framework-package.json");
+const PACKAGE_PATH = path.join(ROOT_DIR, ".ai", "framework-package.json");
 
 async function exists(targetPath) {
   try {
@@ -29,7 +29,7 @@ async function main() {
   }
 
   if (missingFiles.length > 0) {
-    console.error("framework-package.json references missing managed files:");
+    console.error(".ai/framework-package.json references missing managed files:");
     for (const filePath of missingFiles) {
       console.error(`- ${filePath}`);
     }
@@ -38,7 +38,7 @@ async function main() {
   }
 
   console.log(
-    `framework-package.json is valid: ${packageInfo.managedFiles.length} managed files present.`
+    `.ai/framework-package.json is valid: ${packageInfo.managedFiles.length} managed files present.`
   );
 }
 

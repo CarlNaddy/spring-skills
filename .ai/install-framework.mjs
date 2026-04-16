@@ -5,9 +5,9 @@ import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const MANIFEST_FILE = ".spring-skills.json";
+const MANIFEST_FILE = ".ai/.spring-skills.json";
 const REMOTE_PACKAGE_URL =
-  "https://raw.githubusercontent.com/CarlNaddy/spring-skills/main/framework-package.json";
+  "https://raw.githubusercontent.com/CarlNaddy/spring-skills/main/.ai/framework-package.json";
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 function sha256(text) {
@@ -102,6 +102,7 @@ async function loadLocalState(rootDir) {
 
 async function writeLocalState(rootDir, state) {
   const manifestPath = path.join(rootDir, MANIFEST_FILE);
+  await ensureParentDir(manifestPath);
   await writeFile(manifestPath, `${JSON.stringify(state, null, 2)}\n`, "utf8");
 }
 
@@ -134,7 +135,7 @@ async function installOrUpdate() {
 
   for (const relativePath of packageInfo.managedFiles) {
     const remoteContent = useLocalPackage
-      ? await readFile(path.join(SCRIPT_DIR, relativePath), "utf8")
+      ? await readFile(path.join(rootDir, relativePath), "utf8")
       : await fetchText(rawFileUrl(packageInfo.sourceRepo, packageInfo.sourceBranch, relativePath));
     const remoteChecksum = sha256(remoteContent);
     const targetPath = path.join(rootDir, relativePath);
@@ -202,10 +203,11 @@ async function installOrUpdate() {
     }
   }
 
-  console.log("\nNext steps:");
-  console.log("1. Open specs/PRODUCT.md and choose a stack from .ai/STACKS.md.");
-  console.log("2. Optionally set a primary UI skill: tailwindcss or bootstrap-ui-framework.");
-  console.log("3. Use docs/PROMPT-PLAYBOOK.md for copy-paste prompts.");
+  console.log("\nRecommended next prompts:");
+  console.log('1. "Initialize this project for <product idea>. Propose the best stack with trade-offs. Do not implement code yet."');
+  console.log('2. "Use stack <stack-id> and scaffold the first feature specs only."');
+  console.log('3. "Set the primary UI skill to tailwindcss or bootstrap-ui-framework."');
+  console.log("See .ai/docs/PROMPT-PLAYBOOK.md for more prompt examples.");
 }
 
 function labelFor(key) {

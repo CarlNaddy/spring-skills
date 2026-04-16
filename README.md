@@ -16,15 +16,14 @@ This repository showcases:
 From inside your project folder:
 
 ```bash
-curl -O https://raw.githubusercontent.com/CarlNaddy/spring-skills/main/install-framework.mjs
-node install-framework.mjs
+mkdir -p .ai && curl -o .ai/install-framework.mjs https://raw.githubusercontent.com/CarlNaddy/spring-skills/main/.ai/install-framework.mjs && node .ai/install-framework.mjs
 ```
 
 Requirements:
 
 - Node.js `18+`
 
-Re-run the same command later to pull framework updates safely. The installer updates framework-managed files, creates `specs/PRODUCT.md` if missing, and skips managed files that were modified locally.
+Re-run `node .ai/install-framework.mjs` later to pull framework updates safely. The installer updates framework-managed files, creates `specs/PRODUCT.md` if missing, and skips managed files that were modified locally.
 
 ## Skills First
 
@@ -58,7 +57,7 @@ Defined in `.ai/STACKS.md`:
 
 ## Copy-Paste Prompt Examples
 
-For a complete human-oriented prompt reference, see [`docs/PROMPT-PLAYBOOK.md`](docs/PROMPT-PLAYBOOK.md).
+For a complete human-oriented prompt reference, see [`.ai/docs/PROMPT-PLAYBOOK.md`](.ai/docs/PROMPT-PLAYBOOK.md).
 
 ```text
 Let's create feature user-search.
