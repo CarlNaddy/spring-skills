@@ -3,14 +3,28 @@
 This is the stack catalog provided by the AI skill package.
 
 When no stack is selected in `specs/PRODUCT.md`, choose one of the stacks below before implementation.
+These are developer-selectable stack entry points and each defines one primary integration skill.
+Secondary integration skills are resolved automatically from stack required skills and integration requirements.
 
 After a stack is chosen, save the decision in `specs/PRODUCT.md` under `Selected stack`, including required skills.
+
+Primary integration skills in this repository:
+
+- `spring-thymeleaf-htmx-integration`
+- `spring-react-integration`
+
+Skill-level selection rules:
+
+- Primary integration skill is selected indirectly via chosen stack (not chosen ad-hoc).
+- For Thymeleaf stacks, choose one optional UI skill: `tailwindcss` or `bootstrap-ui-framework`.
+- Secondary integration skills are not directly selectable; they are auto-resolved from stack requirements and integration `Requirements`.
+- Additional feature skills may be added only when needed by the active feature and only if they do not conflict with the resolved skill graph.
 
 ---
 
 ## Stack: `spring-thymeleaf-htmx`
 
-- Integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
+- Primary integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
 - Rendering model: SSR (server-rendered HTML)
 - UI communication: server returns HTML fragments/pages (not JSON)
 - Baseline runtime target:
@@ -48,7 +62,7 @@ Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project ba
 
 ## Stack: `spring-react`
 
-- Integration skill: `.ai/skills/spring-react-integration/SKILL.md`
+- Primary integration skill: `.ai/skills/spring-react-integration/SKILL.md`
 - Rendering model: SPA (client-rendered)
 - UI communication: REST + JSON
 - Baseline runtime target:
@@ -76,10 +90,11 @@ Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project ba
 
 ## Stack: `spring-thymeleaf-htmx-postgres`
 
-- Integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
-- Persistence integration: `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
-- Local/runtime integration: `.ai/skills/spring-local-runtime-integration/SKILL.md`
-- Container/runtime integration: `.ai/skills/spring-container-runtime-integration/SKILL.md`
+- Primary integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
+- Auto-resolved secondary integrations:
+  - `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
+  - `.ai/skills/spring-local-runtime-integration/SKILL.md`
+  - `.ai/skills/spring-container-runtime-integration/SKILL.md`
 - Rendering model: SSR (server-rendered HTML)
 - UI communication: server returns HTML fragments/pages (not JSON)
 - Baseline runtime target:
@@ -127,10 +142,11 @@ Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project ba
 
 ## Stack: `spring-react-postgres`
 
-- Integration skill: `.ai/skills/spring-react-integration/SKILL.md`
-- Persistence integration: `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
-- Local/runtime integration: `.ai/skills/spring-local-runtime-integration/SKILL.md`
-- Container/runtime integration: `.ai/skills/spring-container-runtime-integration/SKILL.md`
+- Primary integration skill: `.ai/skills/spring-react-integration/SKILL.md`
+- Auto-resolved secondary integrations:
+  - `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
+  - `.ai/skills/spring-local-runtime-integration/SKILL.md`
+  - `.ai/skills/spring-container-runtime-integration/SKILL.md`
 - Rendering model: SPA (client-rendered)
 - UI communication: REST + JSON
 - Baseline runtime target:
@@ -167,11 +183,12 @@ Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project ba
 
 ## Stack: `spring-thymeleaf-htmx-postgres-shared-tenant`
 
-- Integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
-- Persistence integration: `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
-- Local/runtime integration: `.ai/skills/spring-local-runtime-integration/SKILL.md`
-- Container/runtime integration: `.ai/skills/spring-container-runtime-integration/SKILL.md`
-- Tenant integration: `.ai/skills/spring-shared-tenant-integration/SKILL.md`
+- Primary integration skill: `.ai/skills/spring-thymeleaf-htmx-integration/SKILL.md`
+- Auto-resolved secondary integrations:
+  - `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
+  - `.ai/skills/spring-local-runtime-integration/SKILL.md`
+  - `.ai/skills/spring-container-runtime-integration/SKILL.md`
+  - `.ai/skills/spring-shared-tenant-integration/SKILL.md`
 - Rendering model: SSR (server-rendered HTML)
 - UI communication: server returns HTML fragments/pages (not JSON)
 - Baseline runtime target:
@@ -220,11 +237,12 @@ Do not combine `tailwindcss` and `bootstrap-ui-framework` in the same project ba
 
 ## Stack: `spring-react-postgres-shared-tenant`
 
-- Integration skill: `.ai/skills/spring-react-integration/SKILL.md`
-- Persistence integration: `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
-- Local/runtime integration: `.ai/skills/spring-local-runtime-integration/SKILL.md`
-- Container/runtime integration: `.ai/skills/spring-container-runtime-integration/SKILL.md`
-- Tenant integration: `.ai/skills/spring-shared-tenant-integration/SKILL.md`
+- Primary integration skill: `.ai/skills/spring-react-integration/SKILL.md`
+- Auto-resolved secondary integrations:
+  - `.ai/skills/spring-jpa-flyway-postgres-integration/SKILL.md`
+  - `.ai/skills/spring-local-runtime-integration/SKILL.md`
+  - `.ai/skills/spring-container-runtime-integration/SKILL.md`
+  - `.ai/skills/spring-shared-tenant-integration/SKILL.md`
 - Rendering model: SPA (client-rendered)
 - UI communication: REST + JSON
 - Baseline runtime target:

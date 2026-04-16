@@ -3,6 +3,9 @@
 ## Type
 integration
 
+## Selection Mode
+primary
+
 ## Requirements
 
 - spring-rest-api

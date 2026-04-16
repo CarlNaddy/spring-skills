@@ -37,7 +37,7 @@ You must read and understand:
 * `.ai/STACKS.md`
 * `specs/PRODUCT.md` (create it if missing)
 * active `specs/features/<id>/spec.md` (if present)
-* selected integration skill + required skills from its `Requirements`
+* selected primary integration skill + all required skills resolved transitively from `Requirements` (atomic and/or integration)
 * additional non-conflicting feature skills only when needed
 
 ---
@@ -91,19 +91,23 @@ If no stack is selected:
 3. Ask user to choose a stack explicitly
 4. Record selected stack in `specs/PRODUCT.md`, including:
    * stack ID
-   * integration skill path
+   * primary integration skill path
    * required skills from selected stack
 5. Continue only after selection is confirmed
 
 After a stack is selected:
 
 * Load only:
-  * selected integration skill
-  * required skills listed in that integration skill's `Requirements`
-* Avoid skills that conflict with selected integration skill
+  * selected primary integration skill
+  * all transitive required skills from that integration skill graph (atomic and/or integration)
+* Avoid skills that conflict with any selected/required skill in the resolved graph
+* Treat integration skills by selection mode:
+  * `primary`: selectable by developer via stack selection
+  * `secondary`: NOT directly selectable; resolved automatically through stack required skills and integration `Requirements`
 * For Spring Boot stacks, include the `spring-boot-devtools` skill by default unless the developer explicitly opts out
 
 You MUST NOT implement app code until stack selection is explicit.
+You MUST NOT treat secondary integration skills as user-selectable stack entry points.
 
 ---
 
@@ -189,8 +193,8 @@ You MUST follow this process:
 
 * Resolve selected stack from `specs/PRODUCT.md`
 * If missing: pause and ask user to choose from `.ai/STACKS.md`
-* Load selected integration skill only
-* Load only required skills from integration skill `Requirements`
+* Load selected primary integration skill
+* Resolve and load all required skills transitively from integration skill `Requirements` (including secondary integration skills when defined)
 * Ensure Spring Boot stacks include `spring-boot-devtools` unless explicitly disabled by developer instruction
 * Read framework/runtime versions from `specs/PRODUCT.md` and the active build file (`pom.xml` or `build.gradle`) before generating code
 * Generate code compatible with the project's selected Java and Spring Boot versions; avoid APIs requiring newer incompatible versions
@@ -394,7 +398,7 @@ Before completing any task:
 * Did I follow the active product and feature specs?
 * Did I follow `specs/PRODUCT.md` and active feature `spec.md`?
 * Did I complete the feature review gate before implementation?
-* Did I use the correct integration skill?
+* Did I use the correct primary integration skill and resolve all required skills transitively?
 * Did I respect all Anti-Patterns?
 * Did I introduce any conflicting technologies?
 * Is the architecture consistent?

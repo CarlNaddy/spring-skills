@@ -3,6 +3,9 @@
 ## Type
 integration
 
+## Selection Mode
+secondary
+
 ## Requirements
 
 - dockerfile-spring-boot

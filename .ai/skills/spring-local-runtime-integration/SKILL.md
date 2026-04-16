@@ -3,6 +3,9 @@
 ## Type
 integration
 
+## Selection Mode
+secondary
+
 ## Requirements
 
 - h2-dev-config
