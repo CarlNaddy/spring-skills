@@ -16,7 +16,7 @@ Primary integration skills in this repository:
 Skill-level selection rules:
 
 - Primary integration skill is selected indirectly via chosen stack (not chosen ad-hoc).
-- For Thymeleaf stacks, choose one optional UI skill: `tailwindcss` or `bootstrap-ui-framework`.
+- Choose one optional primary UI skill when the project needs a framework-level styling baseline: `tailwindcss` or `bootstrap-ui-framework`.
 - Secondary integration skills are not directly selectable; they are auto-resolved from stack requirements and integration `Requirements`.
 - Additional feature skills may be added only when needed by the active feature and only if they do not conflict with the resolved skill graph.
 
