@@ -50,6 +50,8 @@ Defined in `.ai/STACKS.md`:
 
 ## Copy-Paste Prompt Examples
 
+For a complete human-oriented prompt reference, see `docs/PROMPT-PLAYBOOK.md`.
+
 ```text
 Let's create feature user-search.
 ```
