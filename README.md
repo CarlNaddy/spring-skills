@@ -4,6 +4,8 @@
 
 A reusable AI framework for building Java web apps with consistent architecture and fast feature delivery.
 
+For fast orientation, read `AGENTS.md` first.
+
 This repository showcases:
 - a portable skills system (`.ai/`),
 - a specs-driven feature workflow (`specs/`),

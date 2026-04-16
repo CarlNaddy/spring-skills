@@ -42,6 +42,14 @@ You must read and understand:
 
 ---
 
+# 3.0 Documentation Freshness (Framework APIs)
+
+When working with library/framework-specific APIs or configuration (Spring Boot, Spring Security, Thymeleaf, HTMX, etc.), prefer Context7 or official docs for version-accurate guidance before introducing new patterns.
+
+Use project versions from `pom.xml` as the compatibility source of truth.
+
+---
+
 # 3.1 Product Planning Workspace
 
 Project-owned product artifacts must live in `specs/` (NOT in `.ai/`).
@@ -221,6 +229,9 @@ Entry criteria (all required before writing app code):
 * `specs/PRODUCT.md` references the active feature and current status
 * active feature docs under `specs/features/<id>/` are updated (`spec.md`, `tasks.md`, optional `plan.md`)
 * developer approval has been explicitly received in conversation
+* if the feature changes persistence schema/queries: migration strategy is defined in feature spec artifacts
+* if the feature changes runtime/deployment behavior: profile/config/deployment validation scope is defined in feature spec artifacts
+* if shared-tenant stack is selected: tenant isolation acceptance criteria are explicit in feature spec artifacts
 
 If any entry criterion is missing, STOP and return to spec/review workflow.
 
@@ -246,6 +257,10 @@ Before finishing, verify:
 * `tasks.md` reflects completed work status
 * If security/static asset behavior changed, automated tests assert anonymous static asset access (expected `200`) and protected route authentication enforcement
 * Generated code is compatible with Java/Spring Boot versions declared in policy and build files
+* If schema changed, Flyway migrations exist and validate for the selected profile matrix (`local`/`test`/`prod` or equivalent)
+* If datasource/config changed, profile-scoped configuration is explicit (H2 local/test, PostgreSQL production-like) and secrets are externalized
+* If deployment-sensitive behavior changed, container startup and health contracts are validated (Dockerfile + Compose/VPS run path)
+* If shared-tenant stack is selected, tests/assertions cover cross-tenant isolation for read and write paths
 
 ---
 
