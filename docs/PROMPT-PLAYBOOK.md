@@ -205,7 +205,57 @@ what changed, why, risk areas, and a concrete test plan checklist.
 
 ---
 
-## 10) Role-Based Quick Start
+## 10) Upgrading Stacks
+
+Use stack upgrades when the project baseline changes significantly, such as adding persistence, PostgreSQL, Flyway, container runtime, or shared-database multitenancy.
+
+Do not treat these as ad-hoc skill additions. Upgrade the selected stack in `specs/PRODUCT.md` first, then review the updated constraints before implementation.
+
+### Upgrade from SSR base stack to PostgreSQL baseline
+
+```text
+Upgrade the selected stack from spring-thymeleaf-htmx to spring-thymeleaf-htmx-postgres.
+Update specs/PRODUCT.md, list the newly added required skills and constraints, identify affected feature specs, and stop for review before implementation.
+```
+
+### Upgrade from React base stack to PostgreSQL baseline
+
+```text
+Upgrade the selected stack from spring-react to spring-react-postgres.
+Update specs/PRODUCT.md, list the newly added required skills and constraints, identify affected feature specs, and stop for review before implementation.
+```
+
+### Upgrade from PostgreSQL stack to shared-tenant stack
+
+```text
+Upgrade the selected stack from <postgres-stack> to <shared-tenant-stack>.
+Update specs/PRODUCT.md, explain the newly added tenant-related constraints, add tenant-isolation acceptance criteria guidance, and stop for review before implementation.
+```
+
+Examples:
+
+- `spring-thymeleaf-htmx-postgres` -> `spring-thymeleaf-htmx-postgres-shared-tenant`
+- `spring-react-postgres` -> `spring-react-postgres-shared-tenant`
+
+### Review upgrade impact before coding
+
+```text
+Review the impact of upgrading the selected stack to <new-stack-id>.
+List required spec changes, feature migration risks, configuration changes, deployment/runtime implications, and recommended next steps.
+Do not implement yet.
+```
+
+### Apply upgrade-related follow-up work
+
+```text
+Approved. Apply the stack-upgrade follow-up work for <new-stack-id>.
+Update affected feature specs, tasks, configuration contracts, and implementation as required by the new stack baseline.
+Then summarize what changed.
+```
+
+---
+
+## 11) Role-Based Quick Start
 
 ### Product Manager (spec-first flow)
 
