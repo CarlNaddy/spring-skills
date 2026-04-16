@@ -11,12 +11,20 @@ This repository showcases:
 - a specs-driven feature workflow (`specs/`),
 - and a reference application used only as an example implementation.
 
-## Demo
+## Try It Now
 
-Add your visuals here to make first-time visitors understand value quickly:
+From inside your project folder:
 
-- `docs/assets/feature-workflow.gif` (prompt -> scaffold -> implement)
-- `docs/assets/reference-app-users.png` (running app screenshot)
+```bash
+curl -O https://raw.githubusercontent.com/CarlNaddy/spring-skills/main/install-framework.mjs
+node install-framework.mjs
+```
+
+Requirements:
+
+- Node.js `18+`
+
+Re-run the same command later to pull framework updates safely. The installer updates framework-managed files, creates `specs/PRODUCT.md` if missing, and skips managed files that were modified locally.
 
 ## Skills First
 
