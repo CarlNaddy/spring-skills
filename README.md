@@ -30,17 +30,12 @@ Requirements:
 ### 2) Send your first kickoff prompt
 
 ```text
-Initialize this project for a simple CRM for a small sales team.
-The app should manage companies, contacts, notes, and follow-up tasks.
-First, help me select the best stack from .ai/STACKS.md and the primary UI baseline (tailwindcss or bootstrap-ui-framework), with short trade-offs.
-Then create or update specs/PRODUCT.md and initialize the Spring Boot project foundation for the selected stack, including the required baseline files and dependencies.
-Optimize for the fastest path to a runnable application, but stop and let me confirm the stack and UI choice before implementing business features.
+Initialize this project as a simple CRM for a small sales team (companies, contacts, notes, follow-up tasks).
+Recommend the best stack from .ai/STACKS.md and one UI baseline (tailwindcss or bootstrap-ui-framework) with short trade-offs.
+If there is no strong preference, default to spring-thymeleaf-htmx + bootstrap-ui-framework.
+After I confirm, create/update specs/PRODUCT.md and initialize the Spring Boot foundation for the selected stack (baseline files + dependencies), optimized for the fastest runnable app.
+Do not implement business features until I explicitly approve.
 ```
-
-If you are unsure which baseline to choose, start with:
-
-- stack: `spring-thymeleaf-htmx`
-- UI baseline: `bootstrap-ui-framework`
 
 ### 3) Run the review gate prompt
 
