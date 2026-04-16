@@ -8,13 +8,82 @@ Copy a prompt, replace placeholders, and send it to the agent.
 
 ## 1) New Project Kickoff
 
-### Set product direction and stack
+### Beginner path (first 3 prompts)
+
+Use this sequence if you are new to the framework and want the fastest path to a runnable baseline.
+
+1. Send one kickoff prompt from `Starter product ideas`.
+2. Send the `Review after kickoff` prompt.
+3. Approve and continue with feature scaffolding or implementation.
+
+Recommended beginner default when unsure:
+
+- stack: `spring-thymeleaf-htmx`
+- UI baseline: `bootstrap-ui-framework`
+
+### Starter product ideas
+
+Use one of these when you want a realistic example product that is still small enough to bootstrap quickly.
+
+#### Simple CRM
 
 ```text
-Initialize this project for <product idea>.
-Create or update specs/PRODUCT.md with goals, scope, runtime versions (Java 17, Spring Boot 3.4.x), and propose the best stack from .ai/STACKS.md with trade-offs.
-Do not implement code yet.
+Initialize this project for a simple CRM for a small sales team.
+The app should manage companies, contacts, notes, and follow-up tasks.
+First, help me select the best stack from .ai/STACKS.md and the primary UI baseline (tailwindcss or bootstrap-ui-framework), with short trade-offs.
+Then create or update specs/PRODUCT.md and initialize the Spring Boot project foundation for the selected stack, including the required baseline files and dependencies.
+Optimize for the fastest path to a runnable application, but stop and let me confirm the stack and UI choice before implementing business features.
 ```
+
+#### Team Task Tracker
+
+```text
+Initialize this project for a team task tracker.
+The app should support projects, tasks, status columns, assignees, due dates, and simple dashboard views.
+First, help me select the best stack from .ai/STACKS.md and the primary UI baseline (tailwindcss or bootstrap-ui-framework), with short trade-offs.
+Then create or update specs/PRODUCT.md and initialize the Spring Boot project foundation for the selected stack, including the required baseline files and dependencies.
+Optimize for the fastest path to a runnable application, but stop and let me confirm the stack and UI choice before implementing business features.
+```
+
+#### Inventory Manager
+
+```text
+Initialize this project for a lightweight inventory manager.
+The app should manage products, stock levels, suppliers, and low-stock alerts.
+First, help me select the best stack from .ai/STACKS.md and the primary UI baseline (tailwindcss or bootstrap-ui-framework), with short trade-offs.
+Then create or update specs/PRODUCT.md and initialize the Spring Boot project foundation for the selected stack, including the required baseline files and dependencies.
+Optimize for the fastest path to a runnable application, but stop and let me confirm the stack and UI choice before implementing business features.
+```
+
+#### Appointment Scheduler
+
+```text
+Initialize this project for a simple appointment scheduler.
+The app should manage customers, appointment types, bookings, and daily schedule views.
+First, help me select the best stack from .ai/STACKS.md and the primary UI baseline (tailwindcss or bootstrap-ui-framework), with short trade-offs.
+Then create or update specs/PRODUCT.md and initialize the Spring Boot project foundation for the selected stack, including the required baseline files and dependencies.
+Optimize for the fastest path to a runnable application, but stop and let me confirm the stack and UI choice before implementing business features.
+```
+
+### Review after kickoff (recommended)
+
+After running one kickoff prompt, ask the agent to pause for human review:
+
+```text
+Show me what changed in specs/PRODUCT.md and the newly created feature spec.
+Summarize decisions, assumptions, and open questions.
+Wait for my approval before implementing business features.
+```
+
+### Ready-to-implement checklist
+
+Before asking for feature implementation, confirm all of these are true:
+
+- selected stack is recorded in `specs/PRODUCT.md`
+- primary UI baseline is recorded in `specs/PRODUCT.md`
+- newly created feature spec has been reviewed by a human
+- open questions and assumptions were resolved or accepted
+- explicit approval to implement was given in chat
 
 ### Choose stack explicitly
 

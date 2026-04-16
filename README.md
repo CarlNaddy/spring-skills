@@ -11,7 +11,11 @@ This repository showcases:
 - a specs-driven feature workflow (`specs/`),
 - and a reference application used only as an example implementation.
 
-## Try It Now
+## 60-Second Quickstart
+
+Use this as the primary onboarding path.
+
+### 1) Install the framework
 
 From inside your project folder:
 
@@ -23,7 +27,48 @@ Requirements:
 
 - Node.js `18+`
 
-Re-run `node .ai/install-framework.mjs` later to pull framework updates safely. The installer updates framework-managed files, creates `specs/PRODUCT.md` if missing, and skips managed files that were modified locally.
+### 2) Send your first kickoff prompt
+
+```text
+Initialize this project for a simple CRM for a small sales team.
+The app should manage companies, contacts, notes, and follow-up tasks.
+First, help me select the best stack from .ai/STACKS.md and the primary UI baseline (tailwindcss or bootstrap-ui-framework), with short trade-offs.
+Then create or update specs/PRODUCT.md and initialize the Spring Boot project foundation for the selected stack, including the required baseline files and dependencies.
+Optimize for the fastest path to a runnable application, but stop and let me confirm the stack and UI choice before implementing business features.
+```
+
+If you are unsure which baseline to choose, start with:
+
+- stack: `spring-thymeleaf-htmx`
+- UI baseline: `bootstrap-ui-framework`
+
+### 3) Run the review gate prompt
+
+```text
+Show me what changed in specs/PRODUCT.md and the newly created feature spec.
+Summarize decisions, assumptions, and open questions.
+Wait for my approval before implementing business features.
+```
+
+### 4) Run the reference app (this repository)
+
+If you are running this repository's included demo app:
+
+1. Run the app:
+   - `mvn spring-boot:run`
+2. Open:
+   - `http://localhost:8080/login`
+3. Sign in:
+   - username: `admin`
+   - password: `password`
+
+Expected outcome after steps 1-4:
+
+- `specs/PRODUCT.md` is created or updated with selected stack and required skills.
+- first feature spec files are scaffolded under `specs/features/<id>/`.
+- Spring Boot foundation for the chosen stack is initialized.
+- implementation is paused until your explicit approval.
+- demo app is reachable at `http://localhost:8080/login` (for this repository).
 
 ## Skills First
 
@@ -54,6 +99,14 @@ Defined in `.ai/STACKS.md`:
 - `spring-react`
   - Spring REST API + React SPA
   - JSON-first client/server separation
+- `spring-thymeleaf-htmx-postgres`
+  - SSR baseline + PostgreSQL + Flyway + container runtime
+- `spring-react-postgres`
+  - SPA baseline + PostgreSQL + Flyway + container runtime
+- `spring-thymeleaf-htmx-postgres-shared-tenant`
+  - SSR + PostgreSQL shared-database multi-tenancy baseline
+- `spring-react-postgres-shared-tenant`
+  - SPA + PostgreSQL shared-database multi-tenancy baseline
 
 ## Copy-Paste Prompt Examples
 
@@ -123,34 +176,19 @@ Expected flow:
 4. Optionally start from specialized templates in `specs/features/templates/` (`crud`, `auth-hardening`, `pagination`, `bootstrap-ui`).
 5. Implement and verify against acceptance criteria.
 
-## Start From Scratch
+## Use In A New Repository
 
-You can use this framework without the example app:
+Use the same onboarding flow in any new project repository:
 
-### Prerequisites before starting a new project
+1. Run the install command from `60-Second Quickstart`.
+2. Send one kickoff prompt from `.ai/docs/PROMPT-PLAYBOOK.md`.
+3. Review `specs/PRODUCT.md` and the first feature spec before implementation.
 
-Set and record runtime/framework versions first (before implementation):
+Runtime baseline to keep in `specs/PRODUCT.md` unless explicitly changed:
 
-- Java version target (default in this repo: `17`)
-- Spring Boot target line (default in this repo: `3.4.x`; current parent `3.4.4`)
-- Version policy: no Java/Spring Boot major or minor upgrades unless explicitly approved
-
-Record these in `specs/PRODUCT.md` and keep generated code compatible with them.
-
-1. Keep only the `.ai/` folder.
-2. Create a new project codebase (Spring Boot, or another stack from `.ai/STACKS.md`).
-3. Prompt your product idea and let the agent scaffold `specs/PRODUCT.md` and feature files automatically.
-4. Review the generated specs, confirm the stack from `.ai/STACKS.md`, and iterate with follow-up prompts.
-
-## Check It Out Fast
-
-1. Run the app:
-   - `mvn spring-boot:run`
-2. Open:
-   - `http://localhost:8080/login`
-3. Sign in:
-   - username: `admin`
-   - password: `password`
+- Java: `17`
+- Spring Boot: `3.4.x`
+- Version policy: do not upgrade Java/Spring Boot major or minor versions without explicit approval
 
 ## Repository Map
 
@@ -158,14 +196,9 @@ Record these in `specs/PRODUCT.md` and keep generated code compatible with them.
 - `specs/` - product and feature requirements
 - `src/` - Spring Boot application code
 
-## Roadmap
+## Updating The Framework
 
-- [x] Skills-first workflow with stack selection gate
-- [x] Specs-based feature scaffolding templates
-- [x] Reference app with SSR + HTMX example
-- [ ] Demo visuals (GIF + screenshots)
-- [x] Additional feature templates (CRUD, auth hardening, pagination, bootstrap-ui)
-- [x] CI checks for specs and template consistency
+Re-run `node .ai/install-framework.mjs` to pull framework updates safely. The installer updates framework-managed files, creates `specs/PRODUCT.md` if missing, and skips managed files that were modified locally.
 
 ---
 
