@@ -2,7 +2,7 @@
 
 ## Primary Purpose
 
-This repository is primarily an **AI skills and policies framework** for building software with consistent, specs-driven workflows.
+This repository is primarily an **AI agent skills framework for Java Spring developers**, focused on consistent, specs-driven workflows.
 
 The Spring Boot app under `src/` is a **reference implementation only** (demo vehicle), not the product itself.
 

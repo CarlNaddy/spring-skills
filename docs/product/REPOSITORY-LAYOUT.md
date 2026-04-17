@@ -2,7 +2,7 @@
 
 This repository uses a simple split:
 
-- `.ai/` is a portable skill pack (copied/imported into projects)
+- `.ai/` is a portable AI agent skill pack (copied/imported into projects)
 - `specs/` is project-owned product/spec execution workspace
 
 ---

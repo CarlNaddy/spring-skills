@@ -1,6 +1,6 @@
 # Specs workspace
 
-This folder is the project-owned planning and execution space.
+This folder is the project-owned planning and execution space for the AI agent skills workflow.
 
 ## Structure
 

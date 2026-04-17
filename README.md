@@ -1,8 +1,8 @@
-# Spring Boot Full-Stack Skills Framework
+# AI Agent Skills Framework for Java Spring Developers
 
 [![Specs Consistency](https://github.com/nadobnykh/spring-skills/actions/workflows/specs-consistency.yml/badge.svg)](https://github.com/nadobnykh/spring-skills/actions/workflows/specs-consistency.yml)
 
-A reusable AI framework for building Java web apps with consistent architecture and fast feature delivery.
+An AI agent skills framework for Java Spring developers, designed for consistent architecture and fast feature delivery.
 
 For fast orientation, read `AGENTS.md` first.
 

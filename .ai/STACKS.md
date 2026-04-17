@@ -1,6 +1,6 @@
 # Available stacks
 
-This is the stack catalog provided by the AI skill package.
+This is the stack catalog provided by the AI agent skills framework package.
 
 When no stack is selected in `specs/PRODUCT.md`, choose one of the stacks below before implementation.
 These are developer-selectable stack entry points and each defines one primary integration skill.
