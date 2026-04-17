@@ -195,6 +195,10 @@ Runtime baseline to keep in `specs/PRODUCT.md` unless explicitly changed:
 
 Re-run `node .ai/install-framework.mjs` to pull framework updates safely. The installer updates framework-managed files, creates `specs/PRODUCT.md` if missing, and skips managed files that were modified locally.
 
+## Changelog
+
+- See `CHANGELOG.md` for release-style framework updates and policy changes.
+
 ---
 
 If you want to review the process design, start with:

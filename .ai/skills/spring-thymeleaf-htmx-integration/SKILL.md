@@ -57,6 +57,19 @@ Do not use when the stack requires JSON-first REST UI communication.
 
 ---
 
+## Dependency Cross-Links
+
+Use this integration skill together with its required skills as a single execution graph:
+
+- `spring-mvc` for controller/request mapping and MVC flow structure.
+- `thymeleaf-templates` for template composition and fragment conventions.
+- `htmx-interactions` for interaction attributes, request patterns, and swap behavior.
+- `spring-boot-devtools` for safe development-time feedback loops.
+
+Do not pull `spring-rest-api` or `react-frontend` patterns into this integration path.
+
+---
+
 ## Rendering Strategy
 
 - Serve full pages for normal browser requests.
@@ -153,6 +166,17 @@ When integration behavior changes, verify:
 - Fragment fallback works when HTMX is unavailable.
 - CSRF enforcement holds for state-changing interactions.
 - Validation errors render correctly in both full and fragment responses.
+
+---
+
+## Execution Checklist (Quick)
+
+- [ ] Full-page and fragment routes are clearly separated or intentionally branched.
+- [ ] Full-page responses render with shared layout assets intact.
+- [ ] HTMX responses return only intended fragment payloads.
+- [ ] CSRF works for forms and HTMX state-changing requests.
+- [ ] Non-HTMX fallback behavior remains functional.
+- [ ] Tests cover both full-page and HTMX fragment paths.
 
 ---
 

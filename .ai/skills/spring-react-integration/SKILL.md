@@ -55,6 +55,18 @@ Do not use when the selected architecture is server-rendered Thymeleaf + HTMX.
 
 ---
 
+## Dependency Cross-Links
+
+Use this integration skill together with its required skills as a single execution graph:
+
+- `spring-rest-api` for API contract quality, validation, and error handling.
+- `react-frontend` for client rendering model, state handling, and routing.
+- `spring-boot-devtools` for development-time productivity and safe local loops.
+
+Do not pull `thymeleaf-templates` patterns into this integration path.
+
+---
+
 ## API Communication Contract
 
 - Use JSON request/response payloads.
@@ -132,6 +144,17 @@ When integration behavior changes, verify:
 - Frontend API workflows for success, error, and timeout/retry paths.
 - Routing behavior for deep links and refresh scenarios.
 - Authentication/authorization behavior across frontend and backend boundaries.
+
+---
+
+## Execution Checklist (Quick)
+
+- [ ] API routes are under `/api/**` with DTO-based contracts.
+- [ ] Frontend API base URL is environment-driven (no hardcoded hosts).
+- [ ] CORS allowlist is explicit and scoped to API paths.
+- [ ] Core API-driven screens handle loading, error, and empty states.
+- [ ] Contract/security tests exist for critical backend endpoints.
+- [ ] Frontend tests cover key integration user flows.
 
 ---
 
