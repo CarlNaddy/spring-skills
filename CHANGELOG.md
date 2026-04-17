@@ -2,6 +2,19 @@
 
 All notable framework-level changes are documented in this file.
 
+## 2026-04-17 - Versioning System Adopted
+
+### Added
+
+- Added `VERSIONING.md` with a lane-based framework version format:
+  - `<spring-boot-major>.<spring-boot-minor>.x.<framework-release>`
+- Added release-tree policy for parallel Spring Boot lanes (for example `release/3.4.x`, `release/4.0.x`).
+- Added lane lifecycle states (`current`, `maintenance`, `eol`) to support multi-lane maintenance over time.
+
+### Changed
+
+- Updated `README.md` with a `Versioning And Release Trees` section and active lane status.
+
 ## 2026-04-17 - Framework Hardening Wave
 
 ### Changed
