@@ -145,6 +145,17 @@ public String usersPage(Model model,
 
 ---
 
+## Testing and Verification (Required)
+
+When integration behavior changes, verify:
+- Full-page request returns complete layout with expected shared assets.
+- HTMX request returns only intended fragment payload.
+- Fragment fallback works when HTMX is unavailable.
+- CSRF enforcement holds for state-changing interactions.
+- Validation errors render correctly in both full and fragment responses.
+
+---
+
 ## Output (Required)
 
 The implementation MUST include:
@@ -155,17 +166,6 @@ The implementation MUST include:
 - CSRF-safe forms and HTMX mutation flow.
 - Tests covering full-page and HTMX fragment responses.
 - `application.yml` entries for relevant Thymeleaf/runtime settings.
-
----
-
-## Testing and Verification (Required)
-
-When integration behavior changes, verify:
-- Full-page request returns complete layout with expected shared assets.
-- HTMX request returns only intended fragment payload.
-- Fragment fallback works when HTMX is unavailable.
-- CSRF enforcement holds for state-changing interactions.
-- Validation errors render correctly in both full and fragment responses.
 
 ---
 

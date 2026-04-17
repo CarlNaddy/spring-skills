@@ -130,11 +130,11 @@ JwtDecoder jwtDecoder(@Value("${security.jwt.issuer-uri}") String issuer) {
 ## Testing and Verification (Required)
 
 When security config changes, add/maintain tests that verify:
-- missing/invalid/expired token -> `401`
-- valid token without required scope/role -> `403`
-- valid token with required scope/role -> success (`200/2xx`)
-- public endpoints remain reachable without auth
-- protected endpoints never become anonymously accessible
+- Missing/invalid/expired token -> `401`.
+- Valid token without required scope/role -> `403`.
+- Valid token with required scope/role -> success (`200/2xx`).
+- Public endpoints remain reachable without auth.
+- Protected endpoints never become anonymously accessible.
 
 Prefer integration tests with `spring-security-test` JWT support and explicit authority assertions.
 
@@ -147,7 +147,7 @@ The implementation MUST include:
 - `SecurityConfig` class with `SecurityFilterChain` bean
 - `application.yml` properties for JWT configuration
 - `JwtDecoder` bean (custom when audience validation is required)
-- at least one protected controller endpoint
+- At least one protected controller endpoint
 - Optional: `JwtAuthenticationConverter` when roles are used
 
 ---
