@@ -68,3 +68,4 @@ Each release SHOULD declare:
 - lane status (`current`, `maintenance`, `eol`).
 
 Use `CHANGELOG.md` for release notes and migration guidance.
+Use `RELEASES.md` for release execution and announcement templates.

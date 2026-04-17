@@ -19,6 +19,7 @@ All notable framework-level changes are documented in this file.
 - Added testing and verification gates across core and integration skill paths.
 - Added Context7-aligned references in hardened skills for version-accurate implementation guidance.
 - Added dependency cross-links and quick execution checklists in primary integration skills to reduce architecture drift.
+- Added `RELEASES.md` with a practical release checklist and announcement templates (GitHub Release and optional email).
 
 ### Changed
 
@@ -31,7 +32,7 @@ All notable framework-level changes are documented in this file.
   - `spring-thymeleaf-htmx-integration`
   - `spring-react-integration`
 - Normalized section structure and style consistency across upgraded skills.
-- Updated `README.md` and `CHANGELOG.md` to document versioning policy and release notes structure.
+- Updated `README.md`, `CHANGELOG.md`, and `VERSIONING.md` to document versioning policy, release notes structure, and release communication workflow.
 
 ### Policy
 

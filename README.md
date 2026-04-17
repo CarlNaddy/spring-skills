@@ -198,6 +198,7 @@ Re-run `node .ai/install-framework.mjs` to pull framework updates safely. The in
 ## Changelog
 
 - See `CHANGELOG.md` for release-style framework updates and policy changes.
+- See `RELEASES.md` for release and notification workflow templates.
 
 ---
 
