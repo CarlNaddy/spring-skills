@@ -2,7 +2,12 @@
 
 All notable framework-level changes are documented in this file.
 
-## 2026-04-17 - Versioning System Adopted
+## 3.4.x.2 - 2026-04-17
+
+### Highlights
+
+- Major production hardening pass across core and integration skills.
+- Introduced formal framework versioning policy with release trees by Spring Boot lane.
 
 ### Added
 
@@ -10,12 +15,10 @@ All notable framework-level changes are documented in this file.
   - `<spring-boot-major>.<spring-boot-minor>.x.<framework-release>`
 - Added release-tree policy for parallel Spring Boot lanes (for example `release/3.4.x`, `release/4.0.x`).
 - Added lane lifecycle states (`current`, `maintenance`, `eol`) to support multi-lane maintenance over time.
-
-### Changed
-
-- Updated `README.md` with a `Versioning And Release Trees` section and active lane status.
-
-## 2026-04-17 - Framework Hardening Wave
+- Added required output contracts in hardened skills to enforce implementation completeness.
+- Added testing and verification gates across core and integration skill paths.
+- Added Context7-aligned references in hardened skills for version-accurate implementation guidance.
+- Added dependency cross-links and quick execution checklists in primary integration skills to reduce architecture drift.
 
 ### Changed
 
@@ -27,13 +30,8 @@ All notable framework-level changes are documented in this file.
 - Upgraded primary integration skills to production-level guidance:
   - `spring-thymeleaf-htmx-integration`
   - `spring-react-integration`
-
-### Added
-
-- Required output contracts in hardened skills to enforce implementation completeness.
-- Testing and verification gates across core and integration skill paths.
-- Context7-aligned reference links in hardened skills for version-accurate implementation guidance.
-- Dependency cross-links and quick execution checklists in primary integration skills to reduce architecture drift.
+- Normalized section structure and style consistency across upgraded skills.
+- Updated `README.md` and `CHANGELOG.md` to document versioning policy and release notes structure.
 
 ### Policy
 
@@ -43,3 +41,8 @@ All notable framework-level changes are documented in this file.
 ### Runtime Alignment
 
 - Migrated demo app runtime config from `src/main/resources/application.properties` to `src/main/resources/application.yml` to match policy.
+
+### Metadata
+
+- Updated framework package version in `.ai/framework-package.json`:
+  - from `0.1.0` to `3.4.x.2`
