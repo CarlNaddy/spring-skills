@@ -1,8 +1,15 @@
-spring.application.name=reference-app
+spring:
+  application:
+    name: reference-app
 
 # Temporary local toggle: uncomment to disable Spring DevTools restart.
-# spring.devtools.restart.enabled=false
+# spring:
+#   devtools:
+#     restart:
+#       enabled: false
 
 # Temporary local toggle: uncomment to enable Tailwind CSS and disable Bootstrap UI Framework templates.
 # This is used to test the migration of the project from Tailwind CSS to Bootstrap UI Framework.
-# spring.thymeleaf.prefix=classpath:/templates_tailwindcss/
+# spring:
+#   thymeleaf:
+#     prefix: classpath:/templates_tailwindcss/

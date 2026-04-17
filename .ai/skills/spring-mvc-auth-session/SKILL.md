@@ -17,36 +17,47 @@ feature
 
 ## Purpose
 
-Provide session-based authentication for Spring MVC applications using server-side rendering.
+Provide production-grade, session-based authentication for server-rendered Spring MVC applications using form login and Thymeleaf.
 
 ---
 
 ## When to Use
 
 Use when:
-- using Spring MVC (SSR)
-- using Thymeleaf templates
-- authentication is form-based
-- session-based auth is required
+- Building an SSR application with Spring MVC + Thymeleaf.
+- Authentication is form-based and browser-driven.
+- Server-managed session cookies are the authentication mechanism.
+
+Do not use for stateless REST APIs that require bearer tokens.
 
 ---
 
 ## Authentication Flow
 
-1. User submits login form
-2. Server validates credentials
-3. Session is created
-4. User stays authenticated via session cookie
+1. User submits credentials to the login endpoint.
+2. Spring Security authenticates the user.
+3. Server establishes an authenticated session.
+4. Browser sends the session cookie on subsequent requests.
 
 ---
 
-## Security Configuration
+## Entry Points
 
-- Use Spring Security
-- Enable form login
-- Enable CSRF protection
-- Keep login and static assets publicly accessible via `permitAll` rules placed before `anyRequest().authenticated()`
-- Prefer `permitAll` for static resources instead of `WebSecurityCustomizer` ignore rules so security headers still apply
+- Configure `SecurityFilterChain` for request authorization and form login.
+- Configure login/logout pages and controller mappings.
+- Configure `application.yml` for security properties.
+- Configure templates/forms to include CSRF tokens.
+
+---
+
+## Security Baseline (Mandatory)
+
+- Use Spring Security form login (`formLogin(...)`) for browser authentication.
+- Keep CSRF protection enabled for server-rendered forms.
+- Define `permitAll` rules for login, error, and required static resources before `.anyRequest().authenticated()`.
+- Prefer `permitAll` matchers for static resources over bypass/ignore rules so security headers remain applied.
+- Keep session fixation protection enabled (Spring Security defaults are secure; customize only with explicit requirements).
+- Keep logout as a state-changing protected flow (POST with CSRF token by default).
 
 ---
 
@@ -54,63 +65,47 @@ Use when:
 
 ```java
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 
-http
-  .csrf().and()
-  .authorizeHttpRequests(auth -> auth
-    .requestMatchers("/login", "/error").permitAll()
-    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-    .requestMatchers("/vendor/**").permitAll()
-    .anyRequest().authenticated()
-  )
-  .formLogin(form -> form
-    .loginPage("/login")
-    .defaultSuccessUrl("/dashboard", true)
-  )
-  .logout(logout -> logout
-    .logoutUrl("/logout")
-    .logoutSuccessUrl("/login")
-  );
-```
+@Configuration
+class SecurityConfig {
 
----
-
-## Login Controller
-
-```java
-@GetMapping("/login")
-public String login() {
-    return "auth/login";
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(Customizer.withDefaults())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/login", "/error").permitAll()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers("/vendor/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+                .loginPage("/login")
+                .defaultSuccessUrl("/dashboard", true)
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+            );
+        return http.build();
+    }
 }
 ```
 
 ---
 
-## Thymeleaf Login Form
+## CSRF and HTMX Guidance
 
-```html
-<form th:action="@{/login}" method="post">
-  <input type="text" name="username" />
-  <input type="password" name="password" />
-  <button type="submit">Login</button>
-</form>
-```
+- Include CSRF tokens in all state-changing form submissions.
+- For HTMX requests that mutate state, send CSRF as request header or parameter.
+- Do not disable CSRF in SSR apps for convenience.
 
----
-
-## Session Handling
-
-* Session managed automatically by Spring Security
-* No manual token handling required
-
----
-
-## CSRF Handling
-
-* CSRF must be enabled
-* Include CSRF token in forms
-
-### Example
+Thymeleaf hidden input pattern:
 
 ```html
 <input type="hidden"
@@ -120,44 +115,71 @@ public String login() {
 
 ---
 
-## HTMX Compatibility
-
-* Ensure CSRF token is included in HTMX requests
-* Use headers if needed
-
----
-
 ## Defaults
 
-* Define an authenticated landing page as the route configured by `defaultSuccessUrl(...)` in Spring Security
-* Root URL design decision:
-  * If an explicit home/root page is defined by the application, map `/` to that page.
-  * Otherwise, map `/` to redirect to the same authenticated landing page route.
-  * Keep this explicit in controller/security configuration; do not implement runtime filesystem/template existence checks.
-* Login URL: `/login`
-* Logout URL: `/logout`
-* Session-based authentication
-* CSRF enabled
-* Public static assets for anonymous users:
-  * include `PathRequest.toStaticResources().atCommonLocations()`
-  * include project-specific static paths used by templates (for example `/vendor/**`)
-  * keep these matchers before `anyRequest().authenticated()`
+- Login page: `/login`
+- Logout endpoint: `/logout`
+- Session-based authentication with server-managed cookie
+- CSRF enabled
+- Static resources exposed via explicit allowlist matchers
+- Authenticated landing page defined via `defaultSuccessUrl(...)`
+
+Root URL policy:
+- If a dedicated home page exists, map `/` to it.
+- Otherwise, map `/` to redirect to the authenticated landing page.
+- Keep this explicit in controller/security configuration.
 
 ---
 
-## Regression Tests
+## Configuration File Policy
 
-When security rules or static asset paths are changed, include `MockMvc` tests that verify:
+- Use `application.yml` as the canonical Spring Boot configuration file.
+- Use `application-<profile>.yml` for profile-specific settings.
+- Do not add new `application.properties` files.
+- Do not mix `.properties` and `.yml` in the same module.
 
-* anonymous `GET` to required static assets (for example `/vendor/...`) returns `200`
-* protected application routes still require authentication
-* browser-style security behavior is asserted with `Accept: text/html` when testing login redirects (to avoid API-style 401 expectations in ambiguous requests)
+---
+
+## Testing and Verification (Required)
+
+When security rules or templates change, include tests that verify:
+- Anonymous access to required static assets returns `200`.
+- Anonymous requests to protected pages are redirected to login.
+- Authenticated users can access protected pages.
+- CSRF is enforced on state-changing requests.
+- Login and logout flows behave as expected for browser requests.
+
+Prefer `@WebMvcTest` + `MockMvc` for controller/security contract tests.
+Use `@WithMockUser` where appropriate for authorization behavior.
+
+---
+
+## Output (Required)
+
+The implementation MUST include:
+
+- `SecurityConfig` class with a `SecurityFilterChain` bean.
+- Login page endpoint/controller mapping.
+- At least one protected MVC route.
+- Thymeleaf forms that include CSRF token fields for state-changing actions.
+- Regression tests for auth redirects, protected route access, and CSRF enforcement.
+- `application.yml` entries for security-related settings.
 
 ---
 
 ## Anti-Patterns
 
-* Do NOT use JWT in SSR apps
-* Do NOT disable CSRF
-* Do NOT store auth state in frontend
-* Do NOT mix SPA authentication patterns
+- Do NOT use JWT/bearer-token patterns for SSR session-auth flows.
+- Do NOT disable CSRF in a form-based MVC application.
+- Do NOT expose protected pages via broad `permitAll` matchers.
+- Do NOT place business authorization logic only in templates.
+- Do NOT mix SPA and SSR authentication patterns without explicit architecture boundaries.
+
+---
+
+## References (Context7-aligned)
+
+- Spring Security 6.5 Form Login (servlet): https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/form.html
+- Spring Security 6.5 CSRF (servlet): https://docs.spring.io/spring-security/reference/6.5/servlet/exploits/csrf.html
+- Spring Security 6.5 Java Configuration: https://docs.spring.io/spring-security/reference/6.5/servlet/configuration/java.html
+- Spring Boot 3.4 Testing (WebMvcTest, MockMvc): https://docs.spring.io/spring-boot/3.4/reference/testing/spring-boot-applications.html
