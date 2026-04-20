@@ -93,6 +93,7 @@ Use a base layout and extend it.
 
 * Use fragments for reusable UI components
 * Keep fragments small and focused
+* Keep fragment root structure compatible with the HTMX target context (for example row/cell/table containers)
 
 ### Example
 
@@ -111,6 +112,8 @@ Use a base layout and extend it.
 * Templates must support partial rendering
 * Use fragments for HTMX responses
 * HTMX fragments must exclude duplicate `<html>/<head>/<body>` wrappers
+* For endpoints serving both full-page and HTMX responses, branch on `HX-Request` and return the correct template/fragment shape
+* For HTMX redirects/navigation, prefer `HX-Redirect` or `HX-Location` on non-3xx responses
 
 ---
 

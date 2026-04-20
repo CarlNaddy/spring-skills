@@ -22,6 +22,7 @@ Use when adding interactivity to server-rendered applications.
 - Use hx-swap to control DOM updates
 - Build HTMX URLs with Thymeleaf attributes (for example `th:attr="hx-post=@{/users}"`) so routes stay context-relative
 - In controllers, branch full-page vs fragment behavior using `HX-Request` header when endpoint behavior differs
+- For HTMX-triggered redirects/navigation, use `HX-Redirect` or `HX-Location` on non-3xx responses (htmx headers are not processed on 3xx)
 
 ---
 
@@ -30,6 +31,7 @@ Use when adding interactivity to server-rendered applications.
 - Replace content dynamically
 - Load partials from server
 - Submit forms via HTMX
+- Keep baseline links/forms functional without HTMX (progressive enhancement)
 - For multi-region updates (table row append + form reset), prefer `hx-swap="none"` + out-of-band swaps from server fragments
 - For HTMX validation errors, set `HX-Retarget` and `HX-Reswap` headers to place error fragments in the intended container
 
