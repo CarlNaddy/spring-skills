@@ -141,6 +141,44 @@ Interpretation rules:
 
 ---
 
+# 3.4 Planning triggers (`plan.md`)
+
+Before implementation, determine whether `specs/features/<id>/plan.md` is required.
+
+You MUST create `plan.md` when **any** trigger applies:
+
+* Persistence schema or query shape changes beyond a trivial single-table add
+* Authentication, authorization, session, or CSRF-sensitive behavior changes
+* Shared-tenant isolation or tenant context changes
+* Performance-sensitive paths or caching changes where mistakes are costly
+* Multiple viable architectures or unresolved product trade-offs
+* Non-obvious migration, rollout, or backward compatibility
+
+If triggers apply and `plan.md` is missing:
+
+* STOP implementation
+* create `plan.md` (use `specs/features/TEMPLATE/plan.md`) and request review again
+
+If no triggers apply, `plan.md` remains optional.
+
+---
+
+# 3.5 Definition of done and verification
+
+For new features and substantive updates to an active feature spec, you MUST keep intent and proof aligned:
+
+1. **Verification table**: `spec.md` must map each acceptance criterion to evidence (test name/path, manual steps, or metric). Prefer automated tests for non-trivial behavior.
+2. **Definition of done**: `spec.md` must include the checklist from `specs/features/TEMPLATE/spec.md` (or an equivalent explicit checklist in `tasks.md` with no gaps).
+3. **Vertical slices**: implement and validate acceptance criteria in small vertical slices where practical; update `tasks.md` slice checklist as you go.
+4. **Threat notes**: when the feature touches authentication, authorization, sessions, uploads, payments, webhooks, or tenant boundaries, complete the **Threat and abuse notes** subsection in `spec.md` and validate mitigations via tests or documented manual checks.
+
+If verification is incomplete:
+
+* STOP implementation completion
+* update `spec.md` / tests until the verification mapping is honest and actionable
+
+---
+
 # 4. Skill System
 
 ## 4.1 Skill Types
@@ -232,6 +270,8 @@ Entry criteria (all required before writing app code):
 
 * `specs/PRODUCT.md` references the active feature and current status
 * active feature docs under `specs/features/<id>/` are updated (`spec.md`, `tasks.md`, optional `plan.md`)
+* for new features and substantive updates to the active feature: `spec.md` includes a **Verification** mapping for acceptance criteria and a **Definition of done** checklist (use `specs/features/TEMPLATE/spec.md` as the baseline structure)
+* if planning triggers in section **3.4** apply: `plan.md` exists and records approach, rejected alternatives, and major risks
 * developer approval has been explicitly received in conversation
 * if the feature changes persistence schema/queries: migration strategy is defined in feature spec artifacts
 * if the feature changes runtime/deployment behavior: profile/config/deployment validation scope is defined in feature spec artifacts
@@ -258,6 +298,7 @@ Before finishing, verify:
 * No Anti-Patterns are present
 * Architecture matches integration skill
 * Feature acceptance criteria in `specs/features/<id>/spec.md` are satisfied
+* The **Verification** mapping in `spec.md` is satisfied (each criterion has the claimed evidence)
 * `tasks.md` reflects completed work status
 * If security/static asset behavior changed, automated tests assert anonymous static asset access (expected `200`) and protected route authentication enforcement
 * Generated code is compatible with Java/Spring Boot versions declared in policy and build files
@@ -398,6 +439,8 @@ Before completing any task:
 * Did I follow the active product and feature specs?
 * Did I follow `specs/PRODUCT.md` and active feature `spec.md`?
 * Did I complete the feature review gate before implementation?
+* Did I satisfy planning triggers with `plan.md` when required?
+* Did I record verification mapping and definition of done before claiming the feature is complete?
 * Did I use the correct primary integration skill and resolve all required skills transitively?
 * Did I respect all Anti-Patterns?
 * Did I introduce any conflicting technologies?

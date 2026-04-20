@@ -164,6 +164,25 @@ The application follows a clean, maintainable architecture using server-side ren
 
 ---
 
+## Product-level non-goals
+
+Long-lived boundaries for what this product **will not** optimize for unless `specs/PRODUCT.md` is explicitly revised.
+
+- No wholesale rewrites solely for style preferences without a tracked feature spec
+- No dependency or framework churn without developer approval and version policy alignment
+- No silent weakening of security defaults (public routes, static assets, session settings) without a reviewed spec
+
+---
+
+## Quality bar and evidence
+
+- **Specs before code**: new behavior ships with updated `spec.md` and `tasks.md`; substantive work uses the sections in `specs/features/TEMPLATE/spec.md` (verification table, definition of done, rollout notes when deploy-sensitive).
+- **Proof for acceptance**: each acceptance criterion should map to automated tests where feasible; otherwise document manual steps in the feature verification table.
+- **Human gate**: explicit developer approval after spec review remains mandatory per `.ai/AGENTS.md`.
+- **Automation gate**: default branch and pull requests must pass CI workflows under `.github/workflows/` (including Java `mvn verify` when the Spring module is present).
+
+---
+
 ## Success criteria
 
 - No REST APIs are used for UI
